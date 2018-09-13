@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{datetime2}
+\usepackage{multicol}
 \usepackage{tikz}
 \usepackage{calc}
 \usepackage[font=scriptsize]{caption}
@@ -39,25 +40,65 @@ sorting=nyt]{biblatex}
 \setbeamercolor{progress bar in head/foot}{fg=orange, bg=lightgray}
 \begin{document}
 	\maketitle
-	\begin{frame}{Überblick}
-		\tableofcontents
+	\begin{frame}[allowframebreaks]{Überblick}
+			\tableofcontents[sectionstyle=show, subsectionstyle=show/shaded,]
 	\end{frame}
 	%%%% Steffen %%%%
 		\section{Einführung}
 		\metroset{block=fill}
+		\subsection{Einführung Softwarearchitekturen}
 		\begin{frame}{Einführung Softwarearchitekturen}
-			\begin{block}{Definition:}
-				"Softwarearchitektur: [...] Strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen."\cite[ S. 520]{balzert}
+			\begin{block}{Definition 1:}
+				\enquote{Softwarearchitektur: [...] Strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen.} (\cite{balzert} Seite 520)
 			\end{block}
-		\begin{itemize}
-			\item 
-		\end{itemize}
-		
+			\begin{block}{Definition 2:}
+				\enquote{Strukturen eines Softwaresystems: Softwareteile, die Beziehungen zwischen diesen und die Eigenschaften der Softwareteile und ihrer Beziehungen.} (\cite{clements})
+			\end{block}
 		\end{frame}
-		
 		\section{Architektursichten}
+		\subsection{Perspektiven}
+			\begin{frame}{Perspektiven}
+				\begin{columns}
+				\column{0.5\textwidth}
+				\begin{itemize}
+					\item Es existiert kein Modell, welches alle relevanten Informationen beinhaltet
+					\item 4+1-Sichtenmodell (vgl. \cite{4+1})
+						\begin{itemize}
+						\item Logische Sicht
+						\item Prozessorientierte Sicht
+						\item Entiwicklungsorientierte Sicht
+						\item Physische Sicht 
+						\end{itemize} 
+				\end{itemize}
+			   	\column{0.5\textwidth}
+			   	\begin{figure}
+					\includegraphics[width=\textwidth]{4+1.jpg}
+					\caption{Darstellung 4+1-Sichtenmodell (vgl. \cite{4+1pic})}
+				\end{figure}
+			\end{columns}
+			\end{frame}
+			\subsection{Notationen}
+			\begin{frame}{Notationen}
+		
+			\end{frame}
+		
 		\section{Architekturmuster}
-	
+			\subsection{Schichtenarchitektur}
+			\begin{frame}{Schichtenarchitektur}
+			
+			\end{frame}
+			\subsection{Repository-Architektur}
+			\begin{frame}{Repository-Architektur}
+			
+			\end{frame}	
+			\subsection{Client-Server-Architektur}
+			\begin{frame}{Client-Server-Architektur}
+			
+			\end{frame}
+			\subsection{Pipes-and-Filter-Architektur}
+			\begin{frame}{Pipes-and-Filter-Architektur}
+			
+			\end{frame}	
 	%%%% Sidney %%%%
 	\section{Anwendungsarchitekturen}
 		\subsection{Nutzung von Anwendungsarchitekturen}
