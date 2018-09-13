@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{datetime2}
+\usepackage{multicol}
 \usepackage{tikz}
 \usepackage{calc}
 \usepackage{csquotes}
@@ -37,12 +38,13 @@ sorting=nyt]{biblatex}
 \setbeamercolor{progress bar in head/foot}{fg=orange, bg=lightgray}
 \begin{document}
 	\maketitle
-	\begin{frame}{Überblick}
-		\tableofcontents
+	\begin{frame}[allowframebreaks]{Überblick}
+			\tableofcontents[sectionstyle=show, subsectionstyle=show/shaded,]
 	\end{frame}
 	%%%% Steffen %%%%
 		\section{Einführung}
 		\metroset{block=fill}
+		\subsection{Einführung Softwarearchitekturen}
 		\begin{frame}{Einführung Softwarearchitekturen}
 			\begin{block}{Definition 1:}
 				\enquote{Softwarearchitektur: [...] Strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen.} (\cite{balzert} Seite 520)
@@ -52,6 +54,7 @@ sorting=nyt]{biblatex}
 			\end{block}
 		\end{frame}
 		\section{Architektursichten}
+		\subsection{Perspektiven}
 			\begin{frame}{Perspektiven}
 				\begin{columns}
 				\column{0.5\textwidth}
@@ -72,19 +75,25 @@ sorting=nyt]{biblatex}
 				\end{figure}
 			\end{columns}
 			\end{frame}
-			\begin{frame}{Perspektiven}
+			\subsection{Notationen}
+			\begin{frame}{Notationen}
 		
 			\end{frame}
+		
 		\section{Architekturmuster}
+			\subsection{Schichtenarchitektur}
 			\begin{frame}{Schichtenarchitektur}
 			
 			\end{frame}
+			\subsection{Repository-Architektur}
 			\begin{frame}{Repository-Architektur}
 			
 			\end{frame}	
+			\subsection{Client-Server-Architektur}
 			\begin{frame}{Client-Server-Architektur}
 			
 			\end{frame}
+			\subsection{Pipes-and-Filter-Architektur}
 			\begin{frame}{Pipes-and-Filter-Architektur}
 			
 			\end{frame}	
