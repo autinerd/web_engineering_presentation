@@ -3,8 +3,14 @@
 \usepackage{datetime2}
 \usepackage{tikz}
 \usepackage{calc}
+\usepackage{csquotes}
+\usepackage[ngerman]{babel}
 \usetheme{metropolis}
-
+\usepackage[
+style=alphabetic,
+citestyle=authoryear,
+sorting=nyt]{biblatex}
+\addbibresource{literatur.bib}
 % % Definition Progressbar
 \makeatletter
 \newlength{\custom@progressinheadfoot}
@@ -55,7 +61,7 @@
 		\subsection{Definition des Begriffs Softwarearchitektur}
 			\begin{frame}{Definition des Begriffs Softwarearchitektur}
 				\begin{itemize}
-					\item Grundlegende Organisation eines Systems
+					\item Grundlegende Organisation eines Systems (vgl. \cite{gi-lexikon})
 					\item Bestehend aus folgenden Elementen:
 					\begin{itemize}
 						\item Komponenten
@@ -71,8 +77,7 @@
 			\end{frame}
 	\begin{frame}[allowframebreaks]
 		\frametitle{Quellen}
-		\bibliographystyle{amsalpha}
-		\bibliography{literatur.bib}
+		\printbibliography[heading=none]
 	\end{frame}
 \end{document}
 
