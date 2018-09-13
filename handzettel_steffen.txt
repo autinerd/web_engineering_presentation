@@ -1,0 +1,5 @@
+Eine Definition von Helmut Balzert beschreibt den Begriff als „eine strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen“. Die Architekturkomponenten bilden eine Zerlegung des Gesamtsystems, was bedeutet, dass jedes Softwareelement genau einer Architekturkomponente zugeordnet ist.
+
+Paul Clements beschreibt Softwarearchitektur als „Strukturen eines Softwaresystems: Softwareteile, die Beziehungen zwischen diesen und die Eigenschaften der Softwareteile und ihrer Beziehungen“.
+
+Die Softwarearchitektur ist Teil des Softwareentwurfs (siehe SWEBOK), innerhalb dessen sie als Grobgliederung der Komponenten entsteht. Während der Softwareentwurf sich auch auf lokale Aspekte innerhalb des architektonischen Rahmens der Software bezieht und deshalb sehr detailliert sein kann, ist die Softwarearchitektur eine globale Eigenschaft des Gesamtsystems. 
