@@ -1,19 +1,50 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{datetime2}
+\usepackage{tikz}
+\usepackage{calc}
 \usetheme{metropolis}
+
+% % Definition Progressbar
+\makeatletter
+\newlength{\custom@progressinheadfoot}
+\setbeamertemplate{progress bar in head/foot}{
+	\nointerlineskip
+	\setlength{\custom@progressinheadfoot}{%
+		\paperwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
+	}%
+	\begin{beamercolorbox}[wd=\paperwidth]{progress bar in head/foot}
+		\begin{tikzpicture}
+		\draw[bg, fill=bg] (0,0) rectangle (\paperwidth, 0.17em);
+		\draw[fg, fill=fg] (0,0) rectangle (\custom@progressinheadfoot, 0.17em);
+		\end{tikzpicture}%
+	\end{beamercolorbox}
+}
+\addtobeamertemplate{footline}{}{%
+	\usebeamertemplate*{progress bar in head/foot}%
+}
 \title{Softwarearchitekturen}
+\subtitle{Wie wird ein Entwurf für eine Softwarearchitektur erzeugt?}
 \author{Sidney Kuyateh \& Steffen Walter}
 \institute{Duale Hochschule Baden-Württemberg}
 \date{\today}
+\setbeamercolor{progress bar in head/foot}{fg=orange, bg=lightgray}
 \begin{document}
 	\maketitle
 	\begin{frame}{Überblick}
 		\tableofcontents
 	\end{frame}
 	%%%% Steffen %%%%
-	
-		\subsection{1}	
+		\section{Einführung}
+		\begin{frame}{Einführung Softwarearchitekturen}
+			\begin{itemize}
+				\item Test
+				\item Test2\cite[ S. 12]{prinzip}
+			\end{itemize}
+	\end{frame}
+		
+		\section{Architektursichten}
+		\section{Architekturmuster}
 	
 	%%%% Sidney %%%%
 	\section{Abschnitt 1}
@@ -28,4 +59,11 @@
 			\begin{frame}{Weiterer Test}
 				bla bla blub
 			\end{frame}
+	\begin{frame}[allowframebreaks]
+		\frametitle{Quellen}
+		\bibliographystyle{amsalpha}
+		\bibliography{literatur.bib}
+	\end{frame}
 \end{document}
+
+
