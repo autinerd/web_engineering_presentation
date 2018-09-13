@@ -3,14 +3,16 @@
 \usepackage{datetime2}
 \usepackage{tikz}
 \usepackage{calc}
+\usepackage[font=scriptsize]{caption}
 \usepackage{csquotes}
 \usepackage[ngerman]{babel}
 \usetheme{metropolis}
 \usepackage[
 style=alphabetic,
-citestyle=authoryear,
+citestyle=alphabetic,
 sorting=nyt]{biblatex}
 \addbibresource{literatur.bib}
+\setbeamertemplate{frametitle continuation}{\insertcontinuationcount}
 % % Definition Progressbar
 \makeatletter
 \newlength{\custom@progressinheadfoot}
@@ -21,8 +23,8 @@ sorting=nyt]{biblatex}
 	}%
 	\begin{beamercolorbox}[wd=\paperwidth]{progress bar in head/foot}
 		\begin{tikzpicture}
-		\draw[bg, fill=bg] (0,0) rectangle (\paperwidth, 0.17em);
-		\draw[fg, fill=fg] (0,0) rectangle (\custom@progressinheadfoot, 0.17em);
+		\draw[bg, fill=bg] (0,0) rectangle (\paperwidth, 0.4em);
+		\draw[fg, fill=fg] (0,0) rectangle (\custom@progressinheadfoot, 0.4em);
 		\end{tikzpicture}%
 	\end{beamercolorbox}
 }
@@ -57,23 +59,51 @@ sorting=nyt]{biblatex}
 		\section{Architekturmuster}
 	
 	%%%% Sidney %%%%
-	\section{Softwarearchitektur}
-		\subsection{Definition des Begriffs Softwarearchitektur}
-			\begin{frame}{Definition des Begriffs Softwarearchitektur}
-				\begin{itemize}
-					\item Grundlegende Organisation eines Systems (vgl. \cite{gi-lexikon})
-					\item Bestehend aus folgenden Elementen:
-					\begin{itemize}
-						\item Komponenten
-						\item Beziehungen zwischen den Komponenten
-						\item Beziehungen zur Umgebung
-						\item Prinzipien, die Entwurf und Evolution des Systems beschreiben
-					\end{itemize}
+	\section{Anwendungsarchitekturen}
+		\subsection{Nutzung von Anwendungsarchitekturen}
+			\begin{frame}{Nutzung von Anwendungsarchitekturen}
+				\begin{itemize} % sommer
+					\item Enthalten die Haupteigenschaften einer Systemklasse
+					\item Allgemeine architektonische Struktur kann beibehalten werden für neue Systeme desselben Typs
+					\item
 				\end{itemize}
 			\end{frame}
-		\subsection{Weiterer Test}
-			\begin{frame}{Weiterer Test}
-				bla bla blub
+		\subsection{Transaktionsverarbeitende Systeme}
+			\begin{frame}{Transaktionsverarbeitende Systeme}
+				\begin{block}{Definition:}
+					\enquote{Das Ziel Transaktionsverarbeitender Systeme (TP) ist die Verarbeitung von Benutzeranfragen nach Informationen aus einer Datenbank oder Anfragen zum Aktualisieren der Datenbank.} \cite[S. 204]{sommer}
+				\end{block}
+				\begin{itemize}
+					\item Alle Schritte der Transaktion müssen abgeschlossen sein, bevor Änderungen in die Datenbank geschrieben werden
+					\item Transaktionsmanager ist für die Kommunikation mit der Datenbank verantwortlich
+				\end{itemize}
+				\begin{figure}
+					\includegraphics[width=\textwidth]{transaktionssystem-1.png}
+					\caption{Die Struktur transaktionsverarbeitender Anwendungen \cite[S. 204]{sommer}}
+				\end{figure}
+			\end{frame}
+		\subsection{Informationssysteme}
+			\begin{frame}{Informationssysteme 1}
+			\begin{itemize}
+				\item Alle Systeme mit einer gemeinsam genutzten Datenbank können als transaktionsbasierte Informationssysteme betrachtet werden (vgl. \cite[S. 205]{sommer})
+				\item Kontrollierter Zugriff auf eine große Informationsbasis
+			\end{itemize}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{informationssystem-1.png}
+				\caption{Schichtenarchitektur eines Informationssystems \cite[S. 205]{sommer}}
+			\end{figure}
+			\end{frame}
+		
+			\begin{frame}{Informationssysteme 2}
+			\begin{itemize}
+				\item Heutzutage meist webbasierte Systeme
+				\item Schichten häufig softwaretechnisch aufgeteilt:
+				\begin{itemize}
+					\item Webserver: Benutzerkommunikation
+					\item Anwendungsserver: Anwendungslogik, Abrufen und Ändern von Informationen
+					\item Datenbankserver: Transaktionsmanagement, Ausführen der Datenbankoperationen
+				\end{itemize}
+			\end{itemize}
 			\end{frame}
 	\begin{frame}[allowframebreaks]
 		\frametitle{Quellen}
