@@ -45,15 +45,32 @@ sorting=nyt]{biblatex}
 		\metroset{block=fill}
 		\begin{frame}{Einführung Softwarearchitekturen}
 			\begin{block}{Definition 1:}
-				"Softwarearchitektur: [...] Strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen." \cite[ S. 520]{balzert}
+				\enquote{Softwarearchitektur: [...] Strukturierte oder hierarchische Anordnung der Systemkomponenten sowie Beschreibung ihrer Beziehungen.} (\cite{balzert} Seite 520)
 			\end{block}
 			\begin{block}{Definition 2:}
-				"Strukturen eines Softwaresystems: Softwareteile, die Beziehungen zwischen diesen und die Eigenschaften der Softwareteile und ihrer Beziehungen." \cite{clements}
+				\enquote{Strukturen eines Softwaresystems: Softwareteile, die Beziehungen zwischen diesen und die Eigenschaften der Softwareteile und ihrer Beziehungen.} (\cite{clements})
 			\end{block}
 		\end{frame}
 		\section{Architektursichten}
 			\begin{frame}{Perspektiven}
-
+				\begin{columns}
+				\column{0.5\textwidth}
+				\begin{itemize}
+					\item Es existiert kein Modell, welches alle relevanten Informationen beinhaltet
+					\item 4+1-Sichtenmodell (vgl. \cite{4+1})
+						\begin{itemize}
+						\item Logische Sicht
+						\item Prozessorientierte Sicht
+						\item Entiwicklungsorientierte Sicht
+						\item Physische Sicht 
+						\end{itemize} 
+				\end{itemize}
+			   	\column{0.5\textwidth}
+			   	\begin{figure}
+					\includegraphics[width=\textwidth]{4+1.jpg}
+					\caption{Darstellung 4+1-Sichtenmodell (vgl. \cite{4+1pic})}
+				\end{figure}
+			\end{columns}
 			\end{frame}
 			\begin{frame}{Perspektiven}
 		
