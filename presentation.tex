@@ -5,6 +5,7 @@
 \usepackage{tikz}
 \usepackage{calc}
 \usepackage{booktabs}
+\usepackage{makecell}
 \usepackage[font=scriptsize]{caption}
 \usepackage{csquotes}
 \usepackage{xcolor}
@@ -145,31 +146,66 @@ sorting=nyt]{biblatex}
 					\caption{Architektur eine Webanwendung im MVC-Modell (vgl. \cite[ S.193]{sommer})}
 				\end{figure}
 			\end{frame}
-			\subsection{Verschiedene Architekturmuster}
-			\begin{frame}[allowframebreaks]{Verschiedene Architekturmuster}
-			\begin{tabular}{*{4}{l}}
+			\subsection{Schichtenarchitektur}
+			\begin{frame}{Schichtenarchitektur (vgl. \cite[ S. 194]{sommer})}
+			\begin{tabular}{*{2}{l}}
 				\toprule
-				Muster&Beschreibung&Beispiel&Verwendung\\
+				\textbf{Name}&\textbf{Schichtenarchitektur}\\
 				\midrule
-				Schichtenarchitektur & 1&2&3\\
-				Repository-Architektur & 26&25&24\\
-				Client-Server-Architektur & 1&2&3\\
-				Pipes-and-Filter-Architektur & 26&25&24\\
-
+				\midrule
+				\textbf{Beschreibung}&\makecell[l]{Strukturierung in Schichten und hierarchischer\\ Aufbau von Diensten.}\\
+				\midrule
+				\textbf{Verwendung}&\makecell[l]{Zur Erweiterung von Systemen, der Arbeit in\\ Teams und bei mehreren Sicherheitsebenen.}\\
+				\midrule
+				\textbf{Vorteile}&\makecell[l]{Bei konstanten Schnittstellen können ganze\\ Schichten ausgetauscht werden.\\ Modulare Nutzung ist möglich.}\\
+				\midrule
+				\textbf{Nachteile}&\makecell[l]{Probleme durch klare Trennung von Schichten\\ und Einhaltung der Hierarchie.}\\
 				\bottomrule
 			\end{tabular}
-			
-			\begin{tabular}{*{3}{l}}
+			\end{frame}
+			\subsection{Repository-Architektur}
+			\begin{frame}{Repository-Architektur (vgl. \cite[ S. 196f]{sommer})}
+			\begin{tabular}{*{2}{l}}
 				\toprule
-				Muster&Vorteile&Nachteile\\
+				\textbf{Name}&\textbf{Repository-Architektur}\\
 				\midrule
-				Schichtenarchitektur   & 1&2\\
-				Repository-Architektur   & 26&25\\
-				Client-Server-Architektur & 1&3\\
-				Pipes-and-Filter-Architektur  & 26&25\\
+				\midrule
+				Beschreibung&\makecell[l]{Zentrale Schnittstelle und Datenspeicher ist das\\ Repository. Interaktion zwischen Komponenten\\ läuft ausschließlich über das Repository.}\\
+				\midrule
+				Verwendung&\makecell[l]{Fokus auf lange Speicherung und große Daten-\\mengen.}\\
+				\midrule
+				Vorteile&\makecell[l]{Unabhängigkeit der Komponenten, Systemweite\\ Änderungen durch eine Komponente möglich.}\\
+				\midrule
+				Nachteile&\makecell[l]{Fehler beim Repository wirken sich auf das ganze\\ System aus. Flaschenhals durch zentrale Kom-\\munikationsschnittstelle}\\
 				\bottomrule
 			\end{tabular}
-			\end{frame}		
+			\end{frame}	
+			\subsection{Client-Server-Architektur}
+			\begin{frame}{Client-Server-Architektur (vgl. \cite[ S. 198]{sommer})}
+			\begin{tabular}{*{2}{l}}
+				\toprule
+				\textbf{Name}&\textbf{Client-Server-Architektur}\\
+				\midrule\midrule
+				Beschreibung&\makecell[l]{a}\\\midrule
+				Verwendung&\makecell[l]{a}\\\midrule
+				Vorteile&\makecell[l]{a}\\\midrule
+				Nachteile&\makecell[l]{a}\\
+				\bottomrule
+			\end{tabular}
+			\end{frame}
+			\subsection{Pipes-and-Filter-Architektur}
+			\begin{frame}{Pipes-and-Filter-Architektur (vgl. \cite[ S. 200]{sommer})}
+			\begin{tabular}{*{2}{l}}
+				\toprule
+				\textbf{Name}&\textbf{Pipes-and-Filter-Architektur}\\
+				\midrule\midrule
+				Beschreibung&\makecell[l]{a}\\\midrule
+				Verwendung&\makecell[l]{a}\\\midrule
+				Vorteile&\makecell[l]{a}\\\midrule
+				Nachteile&\makecell[l]{a}\\
+				\bottomrule
+			\end{tabular}
+			\end{frame}	
 	%%%% Sidney %%%%
 	\section{Anwendungsarchitekturen}
 		\subsection{Nutzung von Anwendungsarchitekturen}
