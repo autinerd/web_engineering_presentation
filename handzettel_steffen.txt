@@ -36,6 +36,21 @@ wiederverwendbare Komponenten treffen.
 
 Notationnen:
 
-UML ist am wertvollsten,
+Die UML ist während des Entwurfsprozesses nicht sinnvoll, es sind die informelle Notationen vorzuziehen, die schneller zu schreiben sind und die
+leicht auf einem Whiteboard aufgemalt werden können. UML ist am wertvollsten,
 wenn eine Architektur detailliert dokumentiert werden soll oder wenn modellgetrie-
-bene Entwicklung eingesetzt wird
+bene Entwicklung eingesetzt wird.
+
+Architekturbeschreibungssprachen (Architectural Description Language, ADL) vorgeschlagen (Bass et al., 2003). Die Grundbestandteile von ADLs sind Komponenten und Konnektoren, außerdem
+enthalten sie Regeln und Leitlinien für wohlgeformte Architekturen. Doch aufgrund ihres hohen Spezialisierungsgrades finden Bereichs- und Anwendungsspezialisten ADLs schwer zu verstehen und zu benutzen. Dadurch ist es schwierig, ihre Zweckmäßigkeit für praktisches Software-Engineering einzuschätzen. ADLs, die für einen bestimmten Anwendungsbereich (z. B. Automobilsysteme) entworfen wurden, könnten als Grundlage für modellgetriebene Entwicklung dienen.
+
+
+Architekturmuster:
+
+Man kann sich ein Architekturmuster als eine stilisierte, abstrakte Beschreibung einer empfohlenen Vorgehensweise vorstellen, die in unterschiedlichen Systemen und Umgebungen ausprobiert und getestet wurde. Ein Architekturmuster sollte also eine Systemorganisation beschreiben, die in vorhergehenden Systemen erfolgreich war.
+
+MVC: Model-View-Controller-Muster (MVC, Modell-Präsentation-Steuerung). Dieses Muster ist die Grundlage der Interaktionsverwaltung vieler webbasierter Systeme. Die stilisierte Musterbeschreibung enthält den Musternamen, eine kurze Beschreibung (mit einem dazugehörigen grafischen
+Modell) und ein Beispiel für die Systemart, wo das Muster eingesetzt wird (eventuell wieder mit einer grafischen Darstellung). Außerdem sollten Informationen darüber eingefügt werden, wann das Muster verwendet wird, sowie seine Vor- und Nachteile aufgeführt werden. Grafische Architekturmodelle, die mit MVC-Mustern verbunden sind, werden in Abbildung 2 und Abbildung 3 dargestellt
+
+
+

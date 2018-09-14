@@ -97,10 +97,42 @@ sorting=nyt]{biblatex}
 					\item Vorteilhaft bei der Dokumentation von Systemarchitekturen (vgl. \cite[ S. 191]{sommer})
 				\end{itemize}
 			\end{columns}
-			\textit{Auch existiert die Architectural Description Language (ADL). Nachteil: sehr spezifisch auf das Anwendungfeld zugeschnitten}
+			\textit{Auch existiert die Architectural Description Language (ADL). Nachteil: sehr spezifisch auf das Anwendungfeld zugeschnitten.}
 			\end{frame}
 		
 		\section{Architekturmuster}
+			\subsection{Definition}
+			\begin{frame}{Definition}
+				\begin{block}{Merkmale von Architekturmustern (vgl. \cite{wulff}):}
+					\begin{itemize}
+						\item \enquote{Architekturmuster beschreiben die grundsätzliche 
+						Struktur und Organisation einer Anwendung und 
+						liegen auf der höchsten Abstraktionsebene.}
+					
+						\item \enquote{Ein Architekturmuster beschreibt die Menge 
+						vordefinierter Subsysteme, spezifiziert deren 
+						Zuständigkeit und enthält Regeln zu Organisation 
+						der Beziehungen zwischen Ihnen.}
+					
+						\item \enquote{Architekturmuster sind prinzipiell 
+						sprach neutral
+						und Plattform unabhängig.}
+					\end{itemize}
+				\end{block}
+			\end{frame}
+			\subsection{Model-View-Controller-Muster}
+			\begin{frame}[allowframebreaks]{Model-View-Controller-Muster}
+
+			   	\begin{figure}
+					\includegraphics[width=0.8\textwidth]{mvc.png}
+					\caption{Model-View-Controller (MVC) (vgl. \cite[ S.193]{sommer})}
+				\end{figure}
+
+				\begin{figure}
+					\includegraphics[width=0.65\textwidth]{mvc_bsp.png}
+					\caption{Architektur eine Webanwendung im MVC-Modell (vgl. \cite[ S.193]{sommer})}
+				\end{figure}
+			\end{frame}
 			\subsection{Schichtenarchitektur}
 			\begin{frame}{Schichtenarchitektur}
 			
