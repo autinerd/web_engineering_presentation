@@ -15,6 +15,7 @@ citestyle=alphabetic,
 sorting=nyt]{biblatex}
 \addbibresource{literatur.bib}
 \setbeamertemplate{frametitle continuation}{\insertcontinuationcount}
+
 % % Definition Progressbar
 \makeatletter
 \newlength{\custom@progressinheadfoot}
@@ -33,6 +34,18 @@ sorting=nyt]{biblatex}
 \addtobeamertemplate{footline}{}{%
 	\usebeamertemplate*{progress bar in head/foot}%
 }
+
+\tikzset{
+    block/.style    = { rectangle, draw=blue, thick, 
+	fill=blue!20, text width=6em,
+	rounded corners,execute at begin node=\setlength{\baselineskip}{10pt} },
+	line/.style     = { draw, thick, ->, shorten >=2pt },
+}
+{
+	\tikzset{terminal/.append style={text height=1.5ex,text depth=.25ex}}
+	\tikzset{nonterminal/.append style={text height=1.5ex,text depth=.25ex}}
+}
+
 \title{Softwarearchitekturen}
 \subtitle{Wie wird ein Entwurf für eine Softwarearchitektur erzeugt?}
 \author{Sidney Kuyateh \& Steffen Walter}
@@ -169,8 +182,25 @@ sorting=nyt]{biblatex}
 			\begin{frame}{Sprachverarbeitende Systeme}
 				\begin{itemize}
 					\item Übersetzen eine natürliche oder künstliche Sprache in eine andere Darstellung \cite[S. 207]{sommer}
-					\item Beispiel: Compiler, 
+					\item Beispiele: Compiler, Dateikonverter, Natürliche Übersetzungssysteme
 				\end{itemize}
+			\begin{figure}
+				\begin{tikzpicture}
+				\matrix[ampersand replacement=\&, column sep = 5mm, row sep = 5mm] {
+					\node (p1) [block] {\tiny Anweisungen der Quellsprache}; \& \node (p2) [block] {\tiny Übersetzer: \\ Syntax prüfen; \\ Semantik prüfen; \\ Erstellen}; \& \\
+					\& \node (p3)  [block]  {\tiny abstrakte Maschinenanweisungen}; \& \\
+					\node (p4) [block] {\tiny Daten}; \& \node (p5) [block] {\tiny Interpreter: \\ abrufen; \\ ausführen}; \&
+					\node (p6) [block]  {\tiny Ergebnisse};\\
+				};
+				\end{tikzpicture}
+				\caption{text}
+			\end{figure}
+			
+				
+			%	\begin{figure}
+			%		\includegraphics[width=0.7\textwidth]{sprachsystem-1.png}
+			%		\caption{text}
+			%	\end{figure}
 			\end{frame}
 	\begin{frame}[allowframebreaks]
 		\frametitle{Quellen}
