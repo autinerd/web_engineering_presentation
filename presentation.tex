@@ -4,6 +4,7 @@
 \usepackage{multicol}
 \usepackage{tikz}
 \usepackage{calc}
+\usepackage{booktabs}
 \usepackage[font=scriptsize]{caption}
 \usepackage{csquotes}
 \usepackage{xcolor}
@@ -135,33 +136,40 @@ sorting=nyt]{biblatex}
 			\end{frame}
 			\subsection{Model-View-Controller-Muster}
 			\begin{frame}[allowframebreaks]{Model-View-Controller-Muster}
-
 			   	\begin{figure}
 					\includegraphics[width=0.8\textwidth]{mvc.png}
 					\caption{Model-View-Controller (MVC) (vgl. \cite[ S.193]{sommer})}
 				\end{figure}
-
 				\begin{figure}
 					\includegraphics[width=0.65\textwidth]{mvc_bsp.png}
 					\caption{Architektur eine Webanwendung im MVC-Modell (vgl. \cite[ S.193]{sommer})}
 				\end{figure}
 			\end{frame}
-			\subsection{Schichtenarchitektur}
-			\begin{frame}{Schichtenarchitektur}
+			\subsection{Verschiedene Architekturmuster}
+			\begin{frame}[allowframebreaks]{Verschiedene Architekturmuster}
+			\begin{tabular}{*{4}{l}}
+				\toprule
+				Muster&Beschreibung&Beispiel&Verwendung\\
+				\midrule
+				Schichtenarchitektur & 1&2&3\\
+				Repository-Architektur & 26&25&24\\
+				Client-Server-Architektur & 1&2&3\\
+				Pipes-and-Filter-Architektur & 26&25&24\\
+
+				\bottomrule
+			\end{tabular}
 			
-			\end{frame}
-			\subsection{Repository-Architektur}
-			\begin{frame}{Repository-Architektur}
-			
-			\end{frame}	
-			\subsection{Client-Server-Architektur}
-			\begin{frame}{Client-Server-Architektur}
-			
-			\end{frame}
-			\subsection{Pipes-and-Filter-Architektur}
-			\begin{frame}{Pipes-and-Filter-Architektur}
-			
-			\end{frame}	
+			\begin{tabular}{*{3}{l}}
+				\toprule
+				Muster&Vorteile&Nachteile\\
+				\midrule
+				Schichtenarchitektur   & 1&2\\
+				Repository-Architektur   & 26&25\\
+				Client-Server-Architektur & 1&3\\
+				Pipes-and-Filter-Architektur  & 26&25\\
+				\bottomrule
+			\end{tabular}
+			\end{frame}		
 	%%%% Sidney %%%%
 	\section{Anwendungsarchitekturen}
 		\subsection{Nutzung von Anwendungsarchitekturen}
