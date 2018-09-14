@@ -6,6 +6,7 @@
 \usepackage{calc}
 \usepackage[font=scriptsize]{caption}
 \usepackage{csquotes}
+\usepackage{xcolor}
 \usepackage[ngerman]{babel}
 \usetheme{metropolis}
 \usepackage[
@@ -24,8 +25,8 @@ sorting=nyt]{biblatex}
 	}%
 	\begin{beamercolorbox}[wd=\paperwidth]{progress bar in head/foot}
 		\begin{tikzpicture}
-		\draw[bg, fill=bg] (0,0) rectangle (\paperwidth, 0.6em);
-		\draw[fg, fill=fg] (0,0) rectangle (\custom@progressinheadfoot, 0.6em);
+		\draw[bg, fill=bg] (0,0) rectangle (\paperwidth, 0.3em);
+		\draw[fg, fill=fg] (0,0) rectangle (\custom@progressinheadfoot, 0.3em);
 		\end{tikzpicture}%
 	\end{beamercolorbox}
 }
@@ -62,12 +63,13 @@ sorting=nyt]{biblatex}
 				\column{0.5\textwidth}
 				\begin{itemize}
 					\item Es existiert kein Modell, welches alle relevanten Informationen beinhaltet
-					\item 4+1-Sichtenmodell (vgl. \cite{4+1})
+					\item Verschiedene Perspektiven (vgl. \cite{4+1})
 						\begin{itemize}
 						\item Logische Sicht
 						\item Prozessorientierte Sicht
 						\item Entiwicklungsorientierte Sicht
 						\item Physische Sicht 
+						\textcolor{gray}{\item Konzeptionelle Sicht}
 						\end{itemize} 
 				\end{itemize}
 			   	\column{0.5\textwidth}
@@ -79,7 +81,23 @@ sorting=nyt]{biblatex}
 			\end{frame}
 			\subsection{Notationen}
 			\begin{frame}{Notationen}
-		
+			\begin{columns}
+			\column{0.5\textwidth}
+			\textbf{Informelle Notation (vgl. \cite[ S. 8]{req}}):
+				\begin{itemize}
+					\item Syntax und Semantik nicht oder nur informell vorgegeben
+					\item Beispiel: freie Diagramme
+					\item Vorteilhaft bei der Planung und des Entwurfs von Systemarchitekturen (vgl. \cite[ S. 191]{sommer})
+				\end{itemize}				
+				\column{0.5\textwidth}
+				\textbf{Semi-formale Notation (vgl. \cite[ S. 8]{req}}):
+				\begin{itemize}
+					\item Syntax vorgegeben, Semantik halbformal beschrieben
+					\item Beispiele: UML, OCL
+					\item Vorteilhaft bei der Dokumentation von Systemarchitekturen (vgl. \cite[ S. 191]{sommer})
+				\end{itemize}
+			\end{columns}
+			\textit{Auch existiert die Architectural Description Language (ADL). Nachteil: sehr spezifisch auf das Anwendungfeld zugeschnitten}
 			\end{frame}
 		
 		\section{Architekturmuster}

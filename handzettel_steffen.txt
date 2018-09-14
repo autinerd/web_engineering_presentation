@@ -12,21 +12,30 @@ Perspektiven:
 - Auf Grund der einseitigen Perspektive die jedem Architekturmodell innewohnt ist es nicht möglich ein System anhand einem einzigen Modell zu beschreiben.
 Mögliche Perspektiven: Modulare Zerlegung, Laufzeitprozesse oder Netzwerkverteilung des Systems 
 
-4+1-Sichtenmodell:
+Verschiedene Perspektiven auf das System:
 
-- 1 Eine logische Sicht, welche die Hauptabstraktionen im System als Objekte oder
+- 1 Die logische Sicht, welche die Hauptabstraktionen im System als Objekte oder
 Objektklassen zeigt. Es sollte möglich sein, die Systemanforderungen mit den En-
 titäten in dieser logischen Sicht zu verbinden.
 
-- 2 Eine Prozesssicht, die zur Laufzeit zeigt, wie sich das System aus interaktiven
-Prozessen zusammensetzt. Diese Sicht ist bei der Beurteilung von nichtfunktio-
-nalen Systemeigenschaften wie Leistungsfähigkeit und Verfügbarkeit hilfreich.
+- 2 Die Prozesssicht, die zur Laufzeit zeigt, wie sich das System aus interaktiven
+Prozessen zusammensetzt. Diese Sicht ist bei der Beurteilung von nichtfunktionalen Systemeigenschaften wie Leistungsfähigkeit und Verfügbarkeit hilfreich.
 
-- 3 Eine Entwicklungssicht, die zeigt, wie die Software für die Entwicklung zerlegt
+- 3 Die Entwicklungssicht, die zeigt, wie die Software für die Entwicklung zerlegt
 wird. Das heißt, es wird die Aufteilung der Software in Komponenten dargestellt,
 die von einem einzelnen Entwickler oder einem Entwicklerteam implementiert
 werden. Diese Sicht ist für Softwaremanager und Programmierer nützlich.
 
-- 4 Eine physische Sicht, welche die Systemhardware zeigt und darstellt, wie die
+- 4 Die physische Sicht, welche die Systemhardware zeigt und darstellt, wie die
 Softwarekomponenten über die Systemprozessoren verteilt sind. Diese Sicht ist
 für Systementwickler bei der Planung der Systemverteilung nützlich.
+
+- 5 Die Konzeptionelle Sicht ist nicht Teil des Sichtenmodells nach Krutchen, wurde jedoch später von Hofmeister hinzugefügt. Sie ist eine abstrakte Sicht auf das System,
+die als Basis für die Zerlegung übergeordneter Anforderungen in ausführlichere Spezifikationen dienen kann. Mit ihrer Hilfe können Entwickler Entscheidungen über
+wiederverwendbare Komponenten treffen.
+
+Notationnen:
+
+UML ist am wertvollsten,
+wenn eine Architektur detailliert dokumentiert werden soll oder wenn modellgetrie-
+bene Entwicklung eingesetzt wird
