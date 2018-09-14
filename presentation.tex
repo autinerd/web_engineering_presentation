@@ -28,8 +28,8 @@ sorting=nyt]{biblatex}
 	}%
 	\begin{beamercolorbox}[wd=\paperwidth]{progress bar in head/foot}
 		\begin{tikzpicture}
-		\draw[bg, fill=bg] (0,0) rectangle (\paperwidth, 0.3em);
-		\draw[fg, fill=fg] (0,0) rectangle (\custom@progressinheadfoot, 0.3em);
+		\draw[bg, fill=bg] (0,0) rectangle (\paperwidth, 0.4em);
+		\draw[fg, fill=fg] (0,0) rectangle (\custom@progressinheadfoot, 0.4em);
 		\end{tikzpicture}%
 	\end{beamercolorbox}
 }
@@ -39,9 +39,10 @@ sorting=nyt]{biblatex}
 
 \tikzset{
     block/.style    = { rectangle, draw=blue, thick, 
-	fill=blue!20, text width=6em,
+	fill=blue!20, text width=4em,
 	rounded corners,execute at begin node=\setlength{\baselineskip}{10pt} },
-	line/.style     = { draw, thick, ->, shorten >=2pt },
+	line/.style     = {draw, thick, ->},
+	block2/.style = {block, text width= 6em},
 }
 {
 	\tikzset{terminal/.append style={text height=1.5ex,text depth=.25ex}}
@@ -212,10 +213,10 @@ sorting=nyt]{biblatex}
 					\item Alle Schritte der Transaktion müssen abgeschlossen sein, bevor Änderungen in die Datenbank geschrieben werden
 					\item Transaktionsmanager ist für die Kommunikation mit der Datenbank verantwortlich
 				\end{itemize}
-				\begin{figure}
-					\includegraphics[width=\textwidth]{transaktionssystem-1.png}
-					\caption{Die Struktur transaktionsverarbeitender Anwendungen \cite[S. 204]{sommer}}
-				\end{figure}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{transaktionssystem-1.png}
+				\caption{Die Struktur transaktionsverarbeitender Anwendungen \cite[S. 204]{sommer}}
+			\end{figure}
 			\end{frame}
 		\subsection{Informationssysteme}
 			\begin{frame}{Informationssysteme 1}
@@ -223,10 +224,17 @@ sorting=nyt]{biblatex}
 				\item Alle Systeme mit einer gemeinsam genutzten Datenbank können als transaktionsbasierte Informationssysteme betrachtet werden (vgl. \cite[S. 205]{sommer})
 				\item Kontrollierter Zugriff auf eine große Informationsbasis
 			\end{itemize}
-			\begin{figure}
-				\includegraphics[width=\textwidth]{informationssystem-1.png}
-				\caption{Schichtenarchitektur eines Informationssystems \cite[S. 205]{sommer}}
-			\end{figure}
+		\begin{figure}
+			\begin{tikzpicture}[centering text, text width=\textwidth]
+			\matrix {
+				\node (p1) [block] {\tiny Benutzerschnittstelle}; \\
+				\node (p2) [block] {\tiny Benutzerkommunikation \& Authentifizierung und Autorisation}; \\
+				\node (p3)  [block]  {\tiny Abrufen und Ändern von Informationen}; \\
+				\node (p4) [block] {\tiny Transaktionsverwaltung \\ Datenbank}; \\
+			};
+			\end{tikzpicture}
+			\caption{Schichtenarchitektur eines Informationssystems \cite[S. 205]{sommer}}
+		\end{figure}
 			\end{frame}
 		
 			\begin{frame}{Informationssysteme 2}
@@ -250,13 +258,18 @@ sorting=nyt]{biblatex}
 			\begin{figure}
 				\begin{tikzpicture}
 				\matrix[ampersand replacement=\&, column sep = 5mm, row sep = 5mm] {
-					\node (p1) [block] {\tiny Anweisungen der Quellsprache}; \& \node (p2) [block] {\tiny Übersetzer: \\ Syntax prüfen; \\ Semantik prüfen; \\ Erstellen}; \& \\
-					\& \node (p3)  [block]  {\tiny abstrakte Maschinenanweisungen}; \& \\
-					\node (p4) [block] {\tiny Daten}; \& \node (p5) [block] {\tiny Interpreter: \\ abrufen; \\ ausführen}; \&
+					\node (p1) [block] {\tiny Anweisungen der Quellsprache}; \& \node (p2) [block2] {\tiny Übersetzer: \\ Syntax prüfen; \\ Semantik prüfen; \\ Erstellen}; \& \\
+					\& \node (p3)  [block2]  {\tiny abstrakte Maschinenanweisungen}; \& \\
+					\node (p4) [block] {\tiny Daten}; \& \node (p5) [block2] {\tiny \textbf{Interpreter:} \\ abrufen; \\ ausführen}; \&
 					\node (p6) [block]  {\tiny Ergebnisse};\\
 				};
+				\path [line] (p1) -> (p2);
+				\path [line] (p2) -> (p3);
+				\path [line] (p3) -> (p5);
+				\path [line] (p4) -> (p5);
+				\path [line] (p5) -> (p6);
 				\end{tikzpicture}
-				\caption{text}
+				\caption{Die Architektur eines sprachverarbeitenden Systems\cite[S. 208]{sommer}}
 			\end{figure}
 			
 				
