@@ -50,7 +50,9 @@ Architekturmuster:
 Man kann sich ein Architekturmuster als eine stilisierte, abstrakte Beschreibung einer empfohlenen Vorgehensweise vorstellen, die in unterschiedlichen Systemen und Umgebungen ausprobiert und getestet wurde. Ein Architekturmuster sollte also eine Systemorganisation beschreiben, die in vorhergehenden Systemen erfolgreich war.
 
 MVC: Model-View-Controller-Muster (MVC, Modell-Präsentation-Steuerung). Dieses Muster ist die Grundlage der Interaktionsverwaltung vieler webbasierter Systeme. Die stilisierte Musterbeschreibung enthält den Musternamen, eine kurze Beschreibung (mit einem dazugehörigen grafischen
-Modell) und ein Beispiel für die Systemart, wo das Muster eingesetzt wird (eventuell wieder mit einer grafischen Darstellung). Außerdem sollten Informationen darüber eingefügt werden, wann das Muster verwendet wird, sowie seine Vor- und Nachteile aufgeführt werden. Grafische Architekturmodelle, die mit MVC-Mustern verbunden sind, werden in Abbildung 2 und Abbildung 3 dargestellt
+Modell) und ein Beispiel für die Systemart, wo das Muster eingesetzt wird (eventuell wieder mit einer grafischen Darstellung). Außerdem sollten Informationen darüber eingefügt werden, wann das Muster verwendet wird, sowie seine Vor- und Nachteile aufgeführt werden. Grafische Architekturmodelle, die mit MVC-Mustern verbunden sind, werden in Abbildung 2 und Abbildung 3 dargestellt.
+Das MVC aus Abbildung 2 trennt die Elemente eines Systems, sodass sich diese unabhängig voneinan-
+der verändern können.
 
 
 
