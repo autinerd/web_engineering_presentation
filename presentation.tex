@@ -3,6 +3,7 @@
 \usepackage{datetime2}
 \usepackage{multicol}
 \usepackage{tikz}
+\usetikzlibrary{shadows,arrows,fit,matrix,backgrounds}
 \usepackage{calc}
 \usepackage{booktabs}
 \usepackage{makecell}
@@ -40,9 +41,13 @@ sorting=nyt]{biblatex}
 \tikzset{
     block/.style    = { rectangle, draw=blue, thick, 
 	fill=blue!20, text width=4em,
-	rounded corners,execute at begin node=\setlength{\baselineskip}{10pt} },
+	rounded corners,execute at begin node=\setlength{\baselineskip}{8pt} },
 	line/.style     = {draw, thick, ->},
 	block2/.style = {block, text width= 6em},
+	block3/.style = {block, text width=0.7\textwidth, drop shadow, minimum height=1.5em},
+	block4/.style = {block, minimum height=2.2em, drop shadow},
+	block5/.style = {block, drop shadow, text centered},
+	line2/.style = {line, <->},
 }
 {
 	\tikzset{terminal/.append style={text height=1.5ex,text depth=.25ex}}
@@ -57,8 +62,17 @@ sorting=nyt]{biblatex}
 \setbeamercolor{progress bar in head/foot}{fg=orange, bg=lightgray}
 \begin{document}
 	\maketitle
-	\begin{frame}[allowframebreaks]{Überblick}
-			\tableofcontents[sectionstyle=show, subsectionstyle=show/shaded,]
+	\AtBeginSection{
+		\begin{frame}{Überblick}
+			\scriptsize
+			\setlength{\baselineskip}{7pt}
+			\tableofcontents[sectionstyle=show, subsectionstyle=show/shaded,currentsection]
+		\end{frame}
+}
+	\begin{frame}{Überblick}
+		\scriptsize
+		\setlength{\baselineskip}{7pt}
+		\tableofcontents[sectionstyle=show]
 	\end{frame}
 	%%%% Steffen %%%%
 		\section{Einführung}
@@ -214,72 +228,143 @@ sorting=nyt]{biblatex}
 					\item Transaktionsmanager ist für die Kommunikation mit der Datenbank verantwortlich
 				\end{itemize}
 			\begin{figure}
-				\includegraphics[width=\textwidth]{transaktionssystem-1.png}
+				\begin{tikzpicture}[text centered]
+				\matrix[ampersand replacement=\&, column sep=4mm] {
+					\node (p1) [block4] {\tiny E/A-Verarbeitung}; \&
+					\node (p2) [block4] {\tiny Anwendungs"-logik}; \&
+					\node (p3) [block4] {\tiny Transaktions"-manager}; \&
+					\node (p4) [block4] {\tiny Datenbank}; \\
+				};
+				\path [line] (p1) -> (p2);
+				\path [line] (p2) -> (p3);
+				\path [line] (p3) -> (p4);
+				\end{tikzpicture}
 				\caption{Die Struktur transaktionsverarbeitender Anwendungen \cite[S. 204]{sommer}}
 			\end{figure}
 			\end{frame}
 		\subsection{Informationssysteme}
 			\begin{frame}{Informationssysteme 1}
-			\begin{itemize}
-				\item Alle Systeme mit einer gemeinsam genutzten Datenbank können als transaktionsbasierte Informationssysteme betrachtet werden (vgl. \cite[S. 205]{sommer})
-				\item Kontrollierter Zugriff auf eine große Informationsbasis
-			\end{itemize}
-		\begin{figure}
-			\begin{tikzpicture}[centering text, text width=\textwidth]
-			\matrix {
-				\node (p1) [block] {\tiny Benutzerschnittstelle}; \\
-				\node (p2) [block] {\tiny Benutzerkommunikation \& Authentifizierung und Autorisation}; \\
-				\node (p3)  [block]  {\tiny Abrufen und Ändern von Informationen}; \\
-				\node (p4) [block] {\tiny Transaktionsverwaltung \\ Datenbank}; \\
-			};
-			\end{tikzpicture}
-			\caption{Schichtenarchitektur eines Informationssystems \cite[S. 205]{sommer}}
-		\end{figure}
+				\begin{itemize}
+					\item Alle Systeme mit einer gemeinsam genutzten Datenbank können als transaktionsbasierte Informationssysteme betrachtet werden (vgl. \cite[S. 205]{sommer})
+					\item Kontrollierter Zugriff auf eine große Informationsbasis
+				\end{itemize}
+				\begin{figure}
+					\begin{tikzpicture}[text centered]
+					\matrix[row sep=2mm] {
+						\node (p1) [block3] {\tiny Benutzerschnittstelle}; \\
+						\node (p2) [block3] {\tiny \begin{tabular}{l r}
+							Benutzerkommunikation & Authentifizierung und Autorisation
+							\end{tabular}
+						}; \\
+						\node (p3) [block3] {\tiny Abrufen und Ändern von Informationen}; \\
+						\node (p4) [block3] {\tiny Transaktionsverwaltung \\ Datenbank}; \\
+					};
+					\end{tikzpicture}
+					\caption{Schichtenarchitektur eines Informationssystems \cite[S. 205]{sommer}}
+				\end{figure}
 			\end{frame}
 		
 			\begin{frame}{Informationssysteme 2}
-			\begin{itemize}
-				\item Heutzutage meist webbasierte Systeme
-				\item Schichten häufig softwaretechnisch aufgeteilt:
 				\begin{itemize}
-					\item Webserver: Benutzerkommunikation
-					\item Anwendungsserver: Anwendungslogik, Abrufen und Ändern von Informationen
-					\item Datenbankserver: Transaktionsmanagement, Ausführen der Datenbankoperationen
+					\item Heutzutage meist webbasierte Systeme
+					\item Schichten häufig softwaretechnisch aufgeteilt:
+					\begin{itemize}
+						\item Webserver: Benutzerkommunikation
+						\item Anwendungsserver: Anwendungslogik, Abrufen und Ändern von Informationen
+						\item Datenbankserver: Transaktionsmanagement, Ausführen der Datenbankoperationen
+					\end{itemize}
 				\end{itemize}
-			\end{itemize}
 			\end{frame}
 			
 		\subsection{Sprachverarbeitende Systeme}
-			\begin{frame}{Sprachverarbeitende Systeme}
+			\begin{frame}{Sprachverarbeitende Systeme 1}
 				\begin{itemize}
 					\item Übersetzen eine natürliche oder künstliche Sprache in eine andere Darstellung \cite[S. 207]{sommer}
 					\item Beispiele: Compiler, Dateikonverter, Natürliche Übersetzungssysteme
 				\end{itemize}
-			\begin{figure}
-				\begin{tikzpicture}
-				\matrix[ampersand replacement=\&, column sep = 5mm, row sep = 5mm] {
-					\node (p1) [block] {\tiny Anweisungen der Quellsprache}; \& \node (p2) [block2] {\tiny Übersetzer: \\ Syntax prüfen; \\ Semantik prüfen; \\ Erstellen}; \& \\
-					\& \node (p3)  [block2]  {\tiny abstrakte Maschinenanweisungen}; \& \\
-					\node (p4) [block] {\tiny Daten}; \& \node (p5) [block2] {\tiny \textbf{Interpreter:} \\ abrufen; \\ ausführen}; \&
-					\node (p6) [block]  {\tiny Ergebnisse};\\
-				};
-				\path [line] (p1) -> (p2);
-				\path [line] (p2) -> (p3);
-				\path [line] (p3) -> (p5);
-				\path [line] (p4) -> (p5);
-				\path [line] (p5) -> (p6);
-				\end{tikzpicture}
-				\caption{Die Architektur eines sprachverarbeitenden Systems\cite[S. 208]{sommer}}
-			\end{figure}
-			
-				
-			%	\begin{figure}
-			%		\includegraphics[width=0.7\textwidth]{sprachsystem-1.png}
-			%		\caption{text}
-			%	\end{figure}
+				\begin{figure}
+					\begin{tikzpicture}
+						\matrix[ampersand replacement=\&, column sep = 5mm, row sep = 5mm] {
+							\node (p1) [block] {\tiny Anweisungen der Quellsprache}; \& \node (p2) [block2] {\tiny \textbf{Übersetzer:} \\[1em] Syntax prüfen; \\ Semantik prüfen; \\ Erstellen}; \& \\
+							\& \node (p3)  [block2]  {\tiny abstrakte Maschinenanweisungen}; \& \\
+							\node (p4) [block] {\tiny Daten}; \& \node (p5) [block2] {\tiny \textbf{Interpreter:} \\[1em] abrufen; \\ ausführen}; \&
+							\node (p6) [block]  {\tiny Ergebnisse};\\
+						};
+						\path [line] (p1) -> (p2);
+						\path [line] (p2) -> (p3);
+						\path [line] (p3) -> (p5);
+						\path [line] (p4) -> (p5);
+						\path [line] (p5) -> (p6);
+					\end{tikzpicture}
+					\caption{Die Architektur eines sprachverarbeitenden Systems \cite[S. 208]{sommer}}
+				\end{figure}
 			\end{frame}
+	
+			\begin{frame}{Sprachverarbeitende Systeme 2}
+				\begin{itemize}
+					\item Architektur eines Compilers:
+					\begin{itemize}
+						\item lexikalische Analyse
+						\item Symboltabelle
+						\item Syntaxanalyse
+						\item Syntaxbaum
+						\item Semantikanalyse
+						\item Codegenerator
+					\end{itemize}
+				\end{itemize}
+			
+				\begin{figure}
+					\begin{tikzpicture}
+						\matrix[ampersand replacement=\&, column sep = 5mm, row sep = 5mm] {
+							\& \node (p1) [block5] {\tiny
+									Symboltabelle \\
+									Syntaxbaum}; \& \\
+							\node (p2) [block5] {\tiny lexikalische Analyse}; \& \node (p3) [block5] {\tiny syntaktische Analyse}; \& \node (p4) [block5] {\tiny semantische Analyse}; \& \node (p5) [block5] {\tiny Codegenerierung};\\
+						};
+						\path [line2] (p1) -> (p2);
+						\path [line2] (p1) -> (p3);
+						\path [line2] (p1) -> (p4);
+						\path [line2] (p1) -> (p5);
+						\path [line] (p2) -> (p3);
+						\path [line] (p3) -> (p4);
+						\path [line] (p4) -> (p5);
+					\end{tikzpicture}
+					\caption{Pipes-and-Filter-Architektur für einen Compiler \cite[S. 209]{sommer}}
+				\end{figure}
+			\end{frame}
+				
+			\begin{frame}{Sprachverarbeitende Systeme 3}
+				\begin{itemize}
+					\item Problem bei der Pipes-and-Filter-Architektur: Verbindung mit weiteren Werkzeugen nicht möglich
+					\item Effektiver: Repository-Architektur
+				\end{itemize}
+				\begin{figure}
+					\begin{tikzpicture}
+						\matrix (table) [matrix of nodes, nodes in empty cells, ampersand replacement=\&, column sep = 10mm, row sep = 10mm] {
+							  \& \node (p1) [block5] {\tiny lexikalische Analyse}; \& \node [block5] (p2) {\tiny syntaktische Analyse}; \& \node (p3) [block5]  {\tiny semantische Analyse}; \\
+							\node (p4) [block5] {\tiny Textformatierer}; \& \node [block5, minimum height = 1em] (p11) {\tiny abstrakter Syntaxbaum}; \& \node [block, minimum height = 1em] (p12) {\tiny Grammatik\-definition}; \&[-5mm] \node [block5] (p5) {\tiny Optimierer}; \\
+							\node (p6) [block5] {\tiny Editor}; \& \node [block5, minimum height = 1em] (p13) {\tiny Symbol-\\tabelle}; \& \node [block5, minimum height = 1em] (p14) {\tiny Ausgabe\-definition}; \&[-5mm] \node [block5] (p7) {\tiny Codegenerator}; \\
+						};
+						\begin{scope}[on background layer]
+						\node (p10) [fit=(p11)(p12)(p13)(p14),fill=blue!50]{Repository};
+						\end{scope}
+						
+						
+						\path [line2] (p10) -> (p2);
+						\path [line2] (p10) -> (p3);
+						\path [line2] (p10) -> (p4);
+						\path [line2] (p10) -> (p5);
+						\path [line2] (p10) -> (p1);
+						\path [line2] (p10) -> (p6);
+						\path [line2] (p10) -> (p7);
+					\end{tikzpicture}
+					\caption{Repository-Architektur für ein sprachverarbeitendes System \cite[S. 209]{sommer}}
+				\end{figure}
+			\end{frame}
+
 	\begin{frame}[allowframebreaks]
 		\frametitle{Quellen}
+		\renewcommand{\bibfont}{\scriptsize}
 		\printbibliography[heading=none]
 	\end{frame}
 \end{document}
