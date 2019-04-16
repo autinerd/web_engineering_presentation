@@ -18,7 +18,6 @@ citestyle=alphabetic,
 sorting=nyt]{biblatex}
 \addbibresource{literatur.bib}
 \setbeamertemplate{frametitle continuation}{\insertcontinuationcount}
-
 % % Definition Progressbar
 \makeatletter
 \newlength{\custom@progressinheadfoot}
@@ -87,6 +86,7 @@ sorting=nyt]{biblatex}
 							\item Deploymentmöglichkeiten für modernen Cloudplattformen bieten
 							\item Minimierung des Wegs von der Entwicklung zum produktiven Einsatz bieten, für maximale Agilität
 							\item Die Möglichkeit zur einfachen Skalierung, ohne weitreichende Änderungen
+
 						\end{itemize}
 					\end{block}
 				\end{frame}
@@ -99,13 +99,21 @@ sorting=nyt]{biblatex}
 			\subsection{Build, Release, Run}
 			\subsection{Prozesse}
 			%%%% Sidney %%%%
-			\subsection{Bindung an Ports}
-			\subsection{Nebenläufigkeit}
-			\subsection{Einweggebrauch}
-			\subsection{Einweggebrauch}
-			\subsection{Dev-Prod-Vergleichbarkeit}
-			\subsection{Logs}
-			\subsection{Admin-Prozesse}
+			\subsection{VII. Bindung an Ports}
+				\begin{frame}{VII. Bindung an Ports}
+					Eine Zwölf-Faktor-App läuft eigenständig und unabhängig von einem gegebenfalls vorhandenem Webserver.
+
+				\begin{itemize}
+					\item Verarbeitung von HTTP innerhalb des Appcodes
+			 		\item Bindet sich an einen Port und wartet dort auf Requests
+					\item Auch andere Protokolle können angeboten werden
+				\end{itemize}
+			\end{frame}
+			\subsection{VIII. Nebenläufigkeit}
+			\subsection{IX. Einweggebrauch}
+			\subsection{X. Dev-Prod-Vergleichbarkeit}
+			\subsection{XI. Logs}
+			\subsection{XII. Admin-Prozesse}
 		\section{Fazit}
 		\section{Architektursichten}
 		\subsection{Perspektiven}
