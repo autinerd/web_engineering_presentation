@@ -54,7 +54,7 @@ sorting=nyt]{biblatex}
 }
 
 \title{12 Factor App}
-\subtitle{Methode zur Entwicklung einer Software-as-a-Service (SaaS)}
+\subtitle{Eine Methode zur Entwicklung einer Software-as-a-Service (SaaS) Applikation}
 \author{Sidney Kuyateh \& Steffen Walter}
 \institute{Duale Hochschule Baden-Württemberg}
 \date{\today}
@@ -94,12 +94,34 @@ sorting=nyt]{biblatex}
 				\end{frame}
 				\begin{frame}{Hintergrund 12 Factor App}
 					\begin{block}{Hintergrund}
-
+						Die Entwickler der 12 Factor App stammen von der Firma Heroku, wo sie der Entwicklung Zahlreicher Webapplikationen im Bereich SaaS beigewohnt haben, um dann die Synthese ihrer Erfahrungen in einem Dokument zu Sammeln und zu Veröffentlichen.\newline
+						Das Ziel dabei ist es, dass SaaS Apps künftig einfacher skalierbar sind, besser durch ein Team gepflegt und auf Dauer mit kalkulierbaren Kosten weiterentwickelt werden können. Das Konzept richtet sich gleichermaßen an Entwickler wie auch an Administratoren, die mit dem Deployment betraut sind.
 					\end{block}
 				\end{frame}
 		\section{Die Zwölf Faktoren}
 			\subsection{I. Codebase}
+				\begin{frame}{I. Codebase}
+					\begin{columns}
+						\column{0.5\textwidth}
+							\begin{itemize}
+								\item Versionsmanagementsystem (Git, Subversion, ...)
+								\item Codebase - ein Repository (gleicher initialer Commit)
+								\item Jede Codebase muss für sich den zwölf Faktoren entsprechen
+								\item Eine Duplizierung von Code in verschiedenen Codebases ist nicht zulässig - Bibiliotheken
+								\item Eine Codebase - viel Deploys
+								\item Jeder Deploy hat die selbe Codebase
+							\end{itemize}
+						\column{0.5\textwidth}
+						\begin{figure}
+							\includegraphics[width=\textwidth]{codebase-deploys.png}
+							\caption{Codebasis mit unterschiedlichen Deploymentzweigen (\cite{factor-codebase})}
+						\end{figure}
+					\end{columns}
+				\end{frame}
 			\subsection{II. Abhängigkeiten}
+				\begin{frame}{II. Abhängigkeiten}
+					
+				\end{frame}
 			\subsection{III. Konfiguration}
 			\subsection{IV. Unterstützende Dienste}
 			\subsection{V. Build, Release, Run}
