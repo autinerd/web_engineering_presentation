@@ -22,7 +22,7 @@ sorting=nyt]{biblatex}
 \makeatletter
 \newlength{\custom@progressinheadfoot}
 \setbeamertemplate{progress bar in head/foot}{
-	\nointerlineskip
+	\nointerlineskip%
 	\setlength{\custom@progressinheadfoot}{%
 		\paperwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
 	}%
@@ -36,7 +36,7 @@ sorting=nyt]{biblatex}
 \addtobeamertemplate{footline}{}{%
 	\usebeamertemplate*{progress bar in head/foot}%
 }
-
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \tikzset{
     block/.style    = { rectangle, draw=blue, thick, 
 	fill=blue!20, text width=4em,
@@ -82,7 +82,7 @@ sorting=nyt]{biblatex}
 			\subsection{Einführung 12 Factor App und Hintergrund}
 				\begin{frame}{Einführung 12 Factor App}
 					\begin{block}{Einführung}
-						Mit der "12 Factor App" hat Adam Wiggins von der Firma Heroku im Jahr 2011 eine Methode vorgestellt, mit der sich Software-As-A-Service (SaaS) Apps entwerfen und umsetzten lassen, die folgenden Kriterien entsprechen:
+						Mit der \enquote{12 Factor App} hat Adam Wiggins von der Firma Heroku im Jahr 2011 eine Methode vorgestellt, mit der sich Software-As-A-Service (SaaS) Apps entwerfen und umsetzten lassen, die folgenden Kriterien entsprechen:
 						\begin{itemize}
 							\item deklarative Formate zur Kosten- und Zeitoptimierung
 							\item Klare Schnittstellen zum Betriebssystem für maximale Portabilität
@@ -129,21 +129,96 @@ sorting=nyt]{biblatex}
 			%%%% Sidney %%%%
 			\subsection{VII. Bindung an Ports}
 				\begin{frame}{VII. Bindung an Ports}
-					Eine Zwölf-Faktor-App läuft eigenständig und unabhängig von einem gegebenfalls vorhandenem Webserver.
+					\begin{block}{Die Zwölf-Faktor-App läuft eigenständig}
+						\begin{itemize}
+							\item Unabhängig von einem gegebenfalls vorhandenem Webserver.
+							\item Verarbeitung von HTTP innerhalb des Appcodes
+							\item Bindet sich an einen Port und wartet dort auf Requests
+							\item Auch andere Protokolle können angeboten werden
+						\end{itemize}
+					\end{block}
+					
 
-				\begin{itemize}
-					\item Verarbeitung von HTTP innerhalb des Appcodes
-			 		\item Bindet sich an einen Port und wartet dort auf Requests
-					\item Auch andere Protokolle können angeboten werden
-				\end{itemize}
-			\end{frame}
+				\end{frame}
 			\subsection{VIII. Nebenläufigkeit}
-			\subsection{IX. Einweggebrauch}
-			\subsection{X. Dev-Prod-Vergleichbarkeit}
+				\begin{frame}
+					\frametitle{VIII. Nebenläufigkeit}
+					\begin{columns}
+						\column{0.5\textwidth}
+							\begin{block}{Die Zwölf-Faktor-App wird anhand von Prozessen skaliert}
+						\begin{itemize}
+							\item Skalierung über die Anzahl der Prozesse
+							\item Verwendung vom Prozessmanager des Systems
+						\end{itemize}
+					\end{block}
+					\column{0.5\textwidth}
+					\begin{figure}[htpb]
+						\centering
+						\includegraphics[width=\textwidth]{process-types.png}
+						\caption{Skalierung mit Prozessen \cite{factor-concurrency}}
+					\end{figure}
+					\end{columns}
+				\end{frame}
+			\subsection{IX. Entsorgbarkeit}
+			\begin{frame}
+				\frametitle{IX. Entsorgbarkeit}
+				\begin{block}{Die Prozesse der Zwölf-Faktor-App sind jederzeit entsorgbar}
+					\begin{itemize}
+						\item Die Prozesse können jederzeit gestartet und beendet werden
+						\item Möglichst kleine Startzeiten
+						\item Möglichst unproblematisches Beenden
+						\item Robust gegenüber plötzlichen Tod
+						\item Auf die Spitze getrieben: Crash-only design
+					\end{itemize}
+				\end{block}
+			
+			\end{frame}
+			\subsection{X. Dev-Prod-Gleichheit}
+				\begin{frame}
+					\frametitle{X. Dev-Prod-Gleichheit}
+					\begin{block}{Die Zwölf-Factor-App hat möglichst gleiche Entwicklungs- und Produktionsumgebungen}
+						\begin{itemize}
+							\item Zwölf-Factor-App ist für Continuous Deployment ausgelegt
+							\item Gleiche Hintergrunddienste in beiden Umgebungen
+						\end{itemize}
+					\end{block}
+					{\small
+					\begin{tabular}{C{3cm}C{3cm}C{3cm}}
+						& \textbf{Traditionelle App} & \textbf{Zwölf-Faktor-App} \\
+						\textbf{Zeit \newline zwischen Deploys} & Tage -- Wochen & Stunden \\
+						\textbf{Autoren und Verteiler} & unterschiedliche Personen & Dieselben Personen \\
+						\textbf{Umgebungen} & Unterschiedlich & So gleich wie möglich
+					\end{tabular}
+					}
+				
+				\end{frame}
 			\subsection{XI. Logs}
-			\subsection{XII. Admin-Prozesse}
+				\begin{frame}
+					\frametitle{XI. Logs}
+					\begin{block}{Logs sind Eventströme}
+					\begin{itemize}
+						\item Die Zwölf-Faktor-App kümmert sich nicht um das Ziel der Ausgabedaten
+						\item Es wird immer nach \texttt{stdout} geschrieben
+						\item Die Ausführungsumgebung sammelt die Ausgaben aller Prozesse und kümmert sich um das Verarbeiten
+						\item Möglichkeit, spezielle Loganalyse und -indizierungssysteme zu verwenden
+					\end{itemize}	
+					\end{block}
+				\end{frame}
+			\subsection{XII.\@ Administrationsprozesse}
+			\begin{frame}
+				\frametitle{XII. Administrationsprozesse}
+				\begin{block}{Die Zwölf-Factor-App hat Administrationen als einmalige Vorgänge}
+					\begin{itemize}
+						\item Administrative Aufgaben laufen in derselben Umgebung wie die App
+						\item Sie laufen in derselben Isolationsebene (Bundler bei Ruby, virtualenv bei Python etc.)
+						\item Administrativer Code wird gemeinsam mit dem Anwendungscode ausgeliefert
+					\end{itemize}
+				\end{block}
+				
+			
+			\end{frame}
 		\section{Fazit}
-			\subsection{Fazit uns Kritik}
+			\subsection{Fazit und Kritik}
 %		\section{Architektursichten}
 %		\subsection{Perspektiven}
 %			\begin{frame}{Perspektiven}
