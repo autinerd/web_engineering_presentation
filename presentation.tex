@@ -114,23 +114,51 @@ sorting=nyt]{biblatex}
 						\column{0.5\textwidth}
 						\begin{figure}
 							\includegraphics[width=\textwidth]{codebase-deploys.png}
-							\caption{Codebasis mit unterschiedlichen Deploymentzweigen (\cite{factor-codebase})}
+							\caption{Codebasis mit unterschiedlichen Deploymentzweigen \cite{factor-codebase}}
 						\end{figure}
 					\end{columns}
 				\end{frame}
 			\subsection{II. Abhängigkeiten}
 				\begin{frame}{II. Abhängigkeiten}
-					
+					Die meisten Programmiersprachen bieten ein System zur Verwaltung von Bibliotheken an.
+					\begin{itemize}
+						\item Site Package vs. Bundeling
+						\item Abhängigkeitsdeklaration
+						\item Isolation von Abhängigkeiten
+						\item Systemwerkzeuge (z.B. bash, PowerShell, ...)
+					\end{itemize}
 				\end{frame}
 			\subsection{III. Konfiguration}
+				\begin{frame}{III. Konfiguration}
+					Konfigurationen dürfen nicht im Quellcode definiert werden. Währende der die App selbst über viele Installationen hinweg statisch ist, unterscheiden sich die Konfigurationen je nach Deploy. Zugangsdaten und Netzwerkadressen sind Beispiele für derartige variable Daten die Ausgelagert werden müssen.
+					\begin{itemize}
+						\item Konfigurationsdateien (z.B. im yaml Format) - Nachteil: unbestimmter Ort
+						\item Umgebungsvariablen - lassen eine klare Trennung von Code und Konfiguration zu und vermeiden Fehler. 
+						\item Jeder Zweig der Codebase braucht eigene Umgebung - Nachteil für Skalierbarkeit
+					\end{itemize} 
+				\end{frame}
 			\subsection{IV. Unterstützende Dienste}
+				\begin{frame}{IV. Unterstützende Dienste}
+					\begin{columns}
+					\column{0.5\textwidth}
+					Unterstützende Dienste die alle Nachgelagerten Dienste, welche über Netzwerk angesprochen werden. Beispiele für solche Dienste sind Datenbanken, Batchsysteme, Mailing, Cache, uvm.
+					\begin{itemize}
+						\item On-Premises vs. Cloud Dienste
+						\item 
+					\end{itemize}
+					\column{0.5\textwidth}
+					\begin{figure}
+						\includegraphics[width=\textwidth]{attached-resources.png}
+						\caption{Hintergrunddienste einer Anwendung \cite{factor-subdienst}}
+					\end{figure}
+					\end{columns}
+				\end{frame}
 			\subsection{V. Build, Release, Run}
 			\subsection{VI. Prozesse}
 			%%%% Sidney %%%%
 			\subsection{VII. Bindung an Ports}
 				\begin{frame}{VII. Bindung an Ports}
 					Eine Zwölf-Faktor-App läuft eigenständig und unabhängig von einem gegebenfalls vorhandenem Webserver.
-
 				\begin{itemize}
 					\item Verarbeitung von HTTP innerhalb des Appcodes
 			 		\item Bindet sich an einen Port und wartet dort auf Requests
