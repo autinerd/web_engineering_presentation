@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{datetime2}
 \usepackage{multicol}
+\usepackage{amssymb}
 \usepackage{tikz}
 \usetikzlibrary{shadows,arrows,fit,matrix,backgrounds}
 \usepackage{calc}
@@ -141,10 +142,10 @@ sorting=nyt]{biblatex}
 				\begin{frame}{IV. Unterstützende Dienste}
 					\begin{columns}
 					\column{0.5\textwidth}
-					Unterstützende Dienste die alle Nachgelagerten Dienste, welche über Netzwerk angesprochen werden. Beispiele für solche Dienste sind Datenbanken, Batchsysteme, Mailing, Cache, uvm.
+					Unterstützende Dienste sind alle nachgelagerten Dienste, welche über Netzwerk angesprochen werden. Beispiele für solche Dienste sind Datenbanken, Batchsysteme, Mailing, Cache, uvm.
 					\begin{itemize}
 						\item On-Premises vs. Cloud Dienste
-						\item 
+						\item Unabhängig vom Deploy - Modular
 					\end{itemize}
 					\column{0.5\textwidth}
 					\begin{figure}
@@ -154,7 +155,32 @@ sorting=nyt]{biblatex}
 					\end{columns}
 				\end{frame}
 			\subsection{V. Build, Release, Run}
+				\begin{frame}{V. Build, Release, Run}
+					\begin{columns}
+					\column{0.5\textwidth}
+					Drei Schritte von der Codebase zum Deploy:
+					\begin{enumerate}
+						\item Build-Phase\newline $\rightarrow$ ausführbare Datei
+						\item Release-Phase\newline $\rightarrow$ Konfiguration
+						\item Run-Phase\newline $\rightarrow$ Ausführungsumgebung
+					\end{enumerate}
+					Strikte Trennung der Phasen!
+					\column{0.5\textwidth}
+					\begin{figure}
+						\includegraphics[width=\textwidth]{release.png}
+						\caption{Hintergrunddienste einer Anwendung \cite{factor-release}}
+					\end{figure}
+					\end{columns}
+				\end{frame}
 			\subsection{VI. Prozesse}
+				\begin{frame}{VI. Prozesse}
+					Eine App benötigt im einfachsten Fall einen Prozess im Betriebssystem. Komplexere Anwendungen können jedoch sehr viele Prozesse benötigen.
+					\begin{itemize}
+						\item Daten werden in unterstützenden Diensten gespeichert
+						\item RAM und Dateisystem können als Kurzzeit-Cache verwendet werden
+						\item Daten sind zwangsläufig unabhängig vom Prozess
+					\end{itemize}
+				\end{frame}
 			%%%% Sidney %%%%
 			\subsection{VII. Bindung an Ports}
 				\begin{frame}{VII. Bindung an Ports}
