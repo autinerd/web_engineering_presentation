@@ -51,24 +51,31 @@
 %	ARTICLE INFORMATION
 %----------------------------------------------------------------------------------------
 
-\JournalInfo{Handout, No. 1, 23-04-19} % Journal information
-\Archive{Additional note} % Additional notes (e.g. copyright, DOI, review/research article)
+\JournalInfo{Handout, No. 1, \today} % Journal information
+\Archive{Dieses Werk ist unter einer Creative Commons Lizenz vom Typ Namensnennung 2.0 Deutschland zugänglich. Um eine Kopie dieser Lizenz einzusehen, konsultieren Sie http://creativecommons.org/licenses/by/2.0/de/ oder wenden Sie sich brieflich an Creative Commons, Postfach 1866, Mountain View, California, 94042, USA.} % Additional notes (e.g. copyright, DOI, review/research article)
 
 \PaperTitle{12 Factor App} % Article title
 
 \Authors{Sidney Kuyateh\textsuperscript{1}, Steffen Walter\textsuperscript{2}} % Authors
-\affiliation{\textsuperscript{1}\textit{Department of Biology, University of Examples, London, United Kingdom}} % Author affiliation
-\affiliation{\textsuperscript{2}\textit{Department of Chemistry, University of Examples, London, United Kingdom}} % Author affiliation
-\affiliation{*\textbf{Corresponding author}: john@smith.com} % Corresponding author
+\affiliation{\textsuperscript{1}\textit{Studiengang Informationstechnik, Fakultät Technik, Duale Schule Baden-Württemberg, Stuttgart}} % Author affiliation
+\affiliation{\textsuperscript{2}\textit{Studiengang Informationstechnik, Fakultät Technik, Duale Schule Baden-Württemberg, Stuttgart}} % Author affiliation
+\affiliation{*\textbf{Corresponding author}: inf17001@lehre.dhbw-stuttgart.de} % Corresponding author
 
-\Keywords{Keyword1 --- Keyword2 --- Keyword3} % Keywords - if you don't want any simply remove all the text between the curly brackets
+\Keywords{} % Keywords - if you don't want any simply remove all the text between the curly brackets
 \newcommand{\keywordname}{Keywords} % Defines the keywords heading name
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
 %----------------------------------------------------------------------------------------
 
-\Abstract{\lipsum[1]~}
+\Abstract{Das vorliegende Handout soll einen kurzen Überblick über die Kriterien geben, welche bei der Erstellung einer Web-Applikation unter den Vorgaben der "12 Factor App" beachtet werden müssen.\newline Mit der "12 Factor App" hat Adam Wiggins von der Firma Heroku im Jahr 2011 eine Methode vorgestellt, mit der sich Software-As-A-Service (SaaS) Apps entwerfen und umsetzten lassen, die folgenden Kriterien entsprechen:
+\begin{itemize}
+	\item Deklarative Formate zur Kosten- und Zeitoptimierung
+	\item Klare Schnittstellen zum Betriebssystem für maximale Portabilität
+	\item Deploymentmöglichkeiten für modernen Cloudplattformen
+	\item Minimierung des Wegs von der Entwicklung zum produktiven Einsatz, für maximale Agilität
+	\item Die Möglichkeit zur einfachen Skalierung, ohne weitreichende Änderungen
+\end{itemize}}
 
 %----------------------------------------------------------------------------------------
 
@@ -78,7 +85,7 @@
 
 \maketitle % Print the title and abstract box
 
-\tableofcontents % Print the contents section
+%\tableofcontents % Print the contents section
 
 \thispagestyle{empty} % Removes page numbering from the first page
 
@@ -86,18 +93,31 @@
 %	ARTICLE CONTENTS
 %----------------------------------------------------------------------------------------
 
-\section*{Introduction} % The \section*{} command stops section numbering
+\section*{Einleitung} % The \section*{} command stops section numbering
 
 \addcontentsline{toc}{section}{Introduction} % Adds this section to the table of contents
-
-\lipsum[1-3] % Dummy text
- and some mathematics $\cos\pi=-1$ and $\alpha$ in the text\footnote{And some mathematics $\cos\pi=-1$ and $\alpha$ in the text.}.
+Die Entwickler der 12 Factor App stammen von der Firma Heroku, wo sie der Entwicklung Zahlreicher Webapplikationen im Bereich SaaS beigewohnt haben, um dann die Synthese ihrer Erfahrungen in einem Dokument zu Sammeln und zu Veröffentlichen.\newline
+Das Ziel dabei ist es, dass SaaS Apps künftig einfacher skalierbar sind, besser durch ein Team gepflegt und auf Dauer mit kalkulierbaren Kosten weiterentwickelt werden können. Das Konzept richtet sich gleichermaßen an Entwickler wie auch an Administratoren, die mit dem Deployment betraut sind.
 
 %------------------------------------------------
 
-\section{Methods}
+\section{Die Zwölf Faktoren}
+\subsection{I. Codebase}
+\subsection{II. Abhängigkeiten}
+\subsection{III. Konfiguration}
+\subsection{IV. Unterstützende Dienste}
+\subsection{V. Build, Release, Run}
+\subsection{VI. Prozesse}
+%Sidney
+\subsection{VII. Bindung an Ports}
+\subsection{VIII. Nebenläufigkeit}
+\subsection{IX. Entsorgbarkeit}
+\subsection{X. Dev-Prod-Gleichheit}
+\subsection{XI. Logs}
+\subsection{XII.\@ Administrationsprozesse}
+\section{Fazit}
 
-\begin{figure*}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
+\begin{figure}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
 \includegraphics[width=\linewidth]{view}
 \caption{Wide Picture}
 \label{fig:view}
@@ -105,95 +125,9 @@
 
 \lipsum[4] % Dummy text
 
-\begin{equation}
-\cos^3 \theta =\frac{1}{4}\cos\theta+\frac{3}{4}\cos 3\theta
-\label{eq:refname2}
-\end{equation}
-
-\lipsum[5] % Dummy text
-
-\begin{enumerate}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
-\item First item in a list
-\item Second item in a list
-\item Third item in a list
-\end{enumerate}
-
-\subsection{Subsection}
-
-\lipsum[6] % Dummy text
-
-\paragraph{Paragraph} \lipsum[7] % Dummy text
-\paragraph{Paragraph} \lipsum[8] % Dummy text
-
-\subsection{Subsection}
-
-\lipsum[9] % Dummy text
-
-\begin{figure}[ht]\centering
-\includegraphics[width=\linewidth]{results}
-\caption{In-text Picture}
-\label{fig:results}
-\end{figure}
-
-Reference to Figure \ref{fig:results}.
 
 %------------------------------------------------
 
-\section{Results and Discussion}
-
-\lipsum[10] % Dummy text
-
-\subsection{Subsection}
-
-\lipsum[11] % Dummy text
-
-\begin{table}[hbt]
-\caption{Table of Grades}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\label{tab:label}
-\end{table}
-
-\subsubsection{Subsubsection}
-
-\lipsum[12] % Dummy text
-
-\begin{description}
-\item[Word] Definition
-\item[Concept] Explanation
-\item[Idea] Text
-\end{description}
-
-\subsubsection{Subsubsection}
-
-\lipsum[13] % Dummy text
-
-\begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
-\item First item in a list
-\item Second item in a list
-\item Third item in a list
-\end{itemize}
-
-\subsubsection{Subsubsection}
-
-\lipsum[14] % Dummy text
-
-\subsection{Subsection}
-
-\lipsum[15-23] % Dummy text
-
-%------------------------------------------------
-\phantomsection
-\section*{Acknowledgments} % The \section*{} command stops section numbering
 
 \addcontentsline{toc}{section}{Acknowledgments} % Adds this section to the table of contents
 
