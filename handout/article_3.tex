@@ -75,11 +75,11 @@
 
 \Abstract{Das vorliegende Handout soll einen kurzen Überblick über die Kriterien geben, welche bei der Erstellung einer Web-Applikation unter den Vorgaben der \enquote{12 Factor App} beachtet werden müssen.\newline Mit der \enquote{12 Factor App} hat Adam Wiggins von der Firma Heroku im Jahr 2011 eine Methode vorgestellt, mit der sich Software-As-A-Service (SaaS) Apps entwerfen und umsetzten lassen, die folgenden Kriterien entsprechen:
 \begin{itemize}
-	\item Deklarative Formate zur Kosten- und Zeitoptimierung
-	\item Klare Schnittstellen zum Betriebssystem für maximale Portabilität
-	\item Deploymentmöglichkeiten für modernen Cloudplattformen
-	\item Minimierung des Wegs von der Entwicklung zum produktiven Einsatz, für maximale Agilität
-	\item Die Möglichkeit zur einfachen Skalierung, ohne weitreichende Änderungen
+	\item deklarative Formate zur Kosten- und Zeitoptimierung,
+	\item klare Schnittstellen zum Betriebssystem für maximale Portabilität,
+	\item Deploymentmöglichkeiten für modernen Cloudplattformen,
+	\item Minimierung des Wegs von der Entwicklung zum produktiven Einsatz, für maximale Agilität,
+	\item die Möglichkeit zur einfachen Skalierung, ohne weitreichende Änderungen.
 \end{itemize}}
 
 %----------------------------------------------------------------------------------------
@@ -90,7 +90,7 @@
 
 \maketitle % Print the title and abstract box
 
-%\tableofcontents % Print the contents section
+\tableofcontents % Print the contents section
 
 \thispagestyle{empty} % Removes page numbering from the first page
 
@@ -100,8 +100,8 @@
 
 \section*{Einleitung} % The \section*{} command stops section numbering
 
-\addcontentsline{toc}{section}{Introduction} % Adds this section to the table of contents
-Die Entwickler der 12 Factor App stammen von der Firma Heroku, wo sie der Entwicklung zahlreicher Webapplikationen im Bereich SaaS beigewohnt haben, um dann die Synthese ihrer Erfahrungen in einem Dokument zusammen zu fassen und zu Veröffentlichen.\newline
+\addcontentsline{toc}{section}{Einleitung} % Adds this section to the table of contents
+Die Entwickler der \emph{12 Factor App} stammen aus der Firma Heroku, wo sie der Entwicklung zahlreicher Webapplikationen im Bereich SaaS beigewohnt haben.Die Synthese ihrer dort gewonnenen Derfahrungen fassten sie in einem Dokument zusammen und veröffentlichten dieses.\newline
 Das Ziel dabei ist es, dass SaaS Apps künftig einfacher skalierbar sind, besser durch ein Team gepflegt und auf Dauer mit kalkulierbaren Kosten weiterentwickelt werden können. Das Konzept richtet sich gleichermaßen an Entwickler wie auch an Administratoren, die mit dem Deployment betraut sind.
 
 %------------------------------------------------
@@ -112,22 +112,22 @@ Eine \enquote{12 Factor App} benötigt wie der Name schon vermuten lässt zwölf
 Um dem Anspruch einer \enquote{12 Factor App} zu genügen muss der Code immer durch ein Versionsmanagement wie Git oder SVN verwaltet werden. Dabei wird die jede Änderung in einer Versionsdatenbank gespeichert.\newline
 Weder mehrere Repositories noch duplizierter Code in verschiedenen Repositories ist zulässig. Verschiedene Codebases sind als mehrere Apps zu behandeln und duplizierter Code muss in Bibliotheken ausgelagert werden.
 \subsection{II. Abhängigkeiten}
-Die meisten Anwendungen sind abhängig von externen Bibliotheken welche sowohl global, wie auch im Verzeichnis der App zu Verfügung stehen können. Um den Kriterien der \enquote{12 Factor App} zu entsprechen müssen Bibliotheken unabhängig von der Plattform, auf welcher die Anwendung ausgeführt wird, zur Verfügung stehen. Es ist folglich nicht zulässig systemweite Bibliotheken zu verwenden. Weiterhin ist es erforderlich Maßnahmen zu ergreifen, die Sicherstellen, dass die Bibliotheken verschiedener Anwendungen von einander isoliert werden.\newline
+Die meisten Anwendungen sind abhängig von externen Bibliotheken, welche sowohl global wie auch im Verzeichnis der App zu Verfügung stehen können. Um den Kriterien der \enquote{12 Factor App} zu entsprechen, müssen Bibliotheken unabhängig von der Plattform, auf welcher die Anwendung ausgeführt wird, zur Verfügung stehen. Es ist folglich nicht zulässig systemweite Bibliotheken zu verwenden. Weiterhin ist es erforderlich, Maßnahmen zu ergreifen die sicherstellen, dass die Bibliotheken verschiedener Anwendungen von einander isoliert werden.\newline
 Es ist außerdem nicht davon auszugehen, dass bestimmte Systemwerkzeuge zur Verfügung stehen.
 \subsection{III. Konfiguration}
-Konfigurationen sind zwingend außerhalb der Codebase zu definieren. Es muss sichergestellt sein, dass es nicht zu einer Vermischung von Quellcode und Konfiguration kommt. Um dies zu gewährleisten sind Umgebungsvariablen zu verwenden. Bei der Verwendung von Umgebungsvariablen ist darauf zu achten, dass diese immer universell einsetzbar sein müssen und nicht an spezielle Umgebungen gebunden sein dürfen.
+Konfigurationen sind zwingend außerhalb der Codebase zu definieren. Es muss sichergestellt sein, dass es nicht zu einer Vermischung von Quellcode und Konfiguration kommt. Um dies zu gewährleisten sind Umgebungsvariablen zu verwenden. Bei der Verwendung von Umgebungsvariablen ist darauf zu achten, dass diese immer universell einsetzbar und nicht an spezielle Umgebungen gebunden sind.
 \subsection{IV. Unterstützende Dienste}
-Unter einem unterstützenden Dienst wird jeder nachgelagerte Dienst verstanden der über Netzwerk an die Applikation \enquote{angedockt} werden kann. Es wird nicht zwischen Cloud- und On-Premises-Diensten unterschieden. Auch wenn mehrere Dienste die gleiche Funktion bieten werden sie als eigenständiger Dienst begriffen. Dem Modularen System entsprechend soll es möglich sein unterstützende Dienste beliebig an- und abzuhängen, ohne dass Änderungen am Quellcode vorgenommen werden müssen.
+Unter einem unterstützenden Dienst wird jeder nachgelagerte Dienst verstanden, der über Netzwerk an die Applikation \enquote{angedockt} werden kann. Es wird nicht zwischen Cloud- und On-Premises-Diensten unterschieden. Auch wenn mehrere Dienste die gleiche Funktion bieten, werden sie als eigenständiger Dienst begriffen. Dem modularen System entsprechend soll es möglich sein, unterstützende Dienste beliebig an- und abzuhängen, ohne dass Änderungen am Quellcode vorgenommen werden müssen.
 \subsection{V. Build, Release, Run}
-Um vom Quellcode einer Anwendung zu einem laufenden System zu kommen sind drei Schritte nötig:
+Um vom Quellcode einer Anwendung zu einem laufenden System zu kommen, sind drei Schritte nötig:
 \begin{enumerate}
 	\item Die Build-Pase, in welcher der Quellcode in ausführbaren Code transformiert wird. Gegebenefalls muss er zu diesem Zweck kompiliert werden.
-	\item In der Release-Phase wird die Anwendung mit der nötigen Konfiguration ausgestattet um in der gewünschten Umgebung lauffähig zu sein.
+	\item In der Release-Phase wird die Anwendung mit der nötigen Konfiguration ausgestattet, um in der gewünschten Umgebung lauffähig zu sein.
 	\item Die Run-Phase zeichnet sich dadurch aus, dass alle nötigen Prozesse auf dem Zielsystem gestartet werden, um den vollen Funktionsumfang der Anwendung zur Verfügung zu stellen.
 \end{enumerate}
-Änderungen können nicht zur Laufzeit vorgenommen werden, stattdessen werden sie durch neue Releases dem System zugeführt. Es bietet sich an hierfür ein eine Release-Verwaltung einzusetzen um bei Fehlern in neuen Releases ohne großen aufwand zu einem vorherigen Release zurück zu kehren.
+Änderungen können nicht zur Laufzeit vorgenommen werden. Stattdessen werden sie durch neue Releases dem System zugeführt. Es bietet sich an hierfür ein eine Release-Verwaltung einzusetzen um bei Fehlern in neuen Releases ohne großen Aufwand zu einem vorherigen Release zurück zu kehren.
 \subsection{VI. Prozesse}
-Eine App benötigt im einfachsten Fall einen Prozess im Betriebssystem. Komplexere Anwendungen können jedoch sehr viele Prozesse benötigen. Daten dir zur Laufzeit abgefragt werden sollen, werden in unterstützenden Diensten, wie Datenbanken, gespeichert. Der RAM und das Dateisystem können maximal als Cache für die Dauer einer Transaktion verwendet werden, da nicht gewährleistet werden kann, dass die Nächste Transaktion vom selben Prozess bearbeitet wird.
+Eine App benötigt im einfachsten Fall einen Prozess im Betriebssystem. Komplexere Anwendungen können jedoch sehr viele Prozesse benötigen. Daten die zur Laufzeit abgefragt werden sollen, werden in unterstützenden Diensten wie Datenbanken gespeichert. Der RAM und das Dateisystem können maximal als Cache für die Dauer einer Transaktion verwendet werden, da nicht gewährleistet werden kann, dass die nächste Transaktion vom selben Prozess bearbeitet wird.
 
 
 %Sidney
