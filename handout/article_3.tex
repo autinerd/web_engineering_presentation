@@ -104,12 +104,27 @@ Das Ziel dabei ist es, dass SaaS Apps künftig einfacher skalierbar sind, besser
 %------------------------------------------------
 
 \section{Die Zwölf Faktoren}
+Eine \enquote{12 Factor App} benötigt wie der Name schon vermuten lässt zwölf Faktoren um den formulierten Ansprüchen zu genügen. Im Folgenden werden diese Faktoren kurz vorgestellt. 
 \subsection{I. Codebase}
+Um dem Anspruch einer \enquote{12 Factor App} zu genügen muss der Code immer durch ein Versionsmanagement wie Git oder SVN verwaltet werden. Dabei wird die jede Änderung in einer Versionsdatenbank gespeichert.\newline
+Weder mehrere Repositories noch duplizierter Code in verschiedenen Repositories ist zulässig. Verschiedene Codebases sind als mehrere Apps zu behandeln und duplizierter Code muss in Bibliotheken ausgelagert werden.
 \subsection{II. Abhängigkeiten}
+Die meisten Anwendungen sind abhängig von externen Bibliotheken welche sowohl global, wie auch im Verzeichnis der App zu Verfügung stehen können. Um den Kriterien der \enquote{12 Factor App} zu entsprechen müssen Bibliotheken unabhängig von der Plattform, auf welcher die Anwendung ausgeführt wird, zur Verfügung stehen. Es ist folglich nicht zulässig systemweite Bibliotheken zu verwenden. Weiterhin ist es erforderlich Maßnahmen zu ergreifen, die Sicherstellen, dass die Bibliotheken verschiedener Anwendungen von einander isoliert werden.\newline
+Es ist außerdem nicht davon auszugehen, dass bestimmte Systemwerkzeuge zur Verfügung stehen.
 \subsection{III. Konfiguration}
+Konfigurationen sind zwingend außerhalb der Codebase zu definieren. Es muss sichergestellt sein, dass es nicht zu einer Vermischung von Quellcode und Konfiguration kommt. Um dies zu gewährleisten sind Umgebungsvariablen zu verwenden. Bei der Verwendung von Umgebungsvariablen ist darauf zu achten, dass diese immer universell einsetzbar sein müssen und nicht an spezielle Umgebungen gebunden sein dürfen.
 \subsection{IV. Unterstützende Dienste}
+Unter einem unterstützenden Dienst wird jeder nachgelagerte Dienst verstanden der über Netzwerk an die Applikation \enquote{angedockt} werden kann. Es wird nicht zwischen Cloud- und On-Premises-Diensten unterschieden. Auch wenn mehrere Dienste die gleiche Funktion bieten werden sie als eigenständiger Dienst begriffen. Dem Modularen System entsprechend soll es möglich sein unterstützende Dienste beliebig an- und abzuhängen, ohne dass Änderungen am Quellcode vorgenommen werden müssen.
 \subsection{V. Build, Release, Run}
+Um vom Quellcode einer Anwendung zu einem laufenden System zu kommen sind drei Schritte nötig:
+\begin{enumerate}
+	\item Die Build-Pase, in welcher der Quellcode in ausführbaren Code transformiert wird. Gegebenefalls muss er zu diesem Zweck kompiliert werden.
+	\item In der Release-Phase wird die Anwendung mit der nötigen Konfiguration ausgestattet um in der gewünschten Umgebung lauffähig zu sein.
+	\item Die Run-Phase zeichnet sich dadurch aus, dass alle nötigen Prozesse auf dem Zielsystem gestartet werden, um den vollen Funktionsumfang der Anwendung zur Verfügung zu stellen.
+\end{enumerate}
+Änderungen können nicht zur Laufzeit vorgenommen werden, stattdessen werden sie durch neue Releases dem System zugeführt. Es bietet sich an hierfür ein eine Release-Verwaltung einzusetzen um bei Fehlern in neuen Releases ohne großen aufwand zu einem vorherigen Release zurück zu kehren.
 \subsection{VI. Prozesse}
+
 %Sidney
 \subsection{VII. Bindung an Ports}
 Die Zwölf-Faktor-App läuft eigenständig.
