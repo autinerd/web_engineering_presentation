@@ -120,6 +120,7 @@ Die Zwölf-Faktor-App läuft eigenständig.
 	\item Auch andere Protokolle können angeboten werden
 \end{itemize}
 \subsection{VIII. Nebenläufigkeit}
+Die Zwölf-Faktor-App wird anhand von Prozessen skaliert
 \begin{itemize}
 	\item Skalierung über die Anzahl der Prozesse
 	\item Verwendung vom Prozessmanager des Systems zur Behandlung \newline von Triggern
@@ -130,6 +131,7 @@ Die Zwölf-Faktor-App läuft eigenständig.
 	\caption{Skalierung mit Prozessen~\cite{factor-concurrency}}
 \end{figure}
 \subsection{IX. Entsorgbarkeit}
+Die Prozesse der Zwölf-Faktor-App sind jederzeit entsorgbar
 \begin{itemize}
 	\item Die Prozesse können jederzeit gestartet und beendet werden
 	\item Möglichst kleine Startzeiten
@@ -138,11 +140,13 @@ Die Zwölf-Faktor-App läuft eigenständig.
 	\item Auf die Spitze getrieben: Crash-only design
 \end{itemize}
 \subsection{X. Dev-Prod-Gleichheit}
+Die Zwölf-Factor-App hat möglichst gleiche Entwicklungs- und Produktionsumgebungen
 \begin{itemize}
 	\item Zwölf-Factor-App ist für Continuous Deployment ausgelegt
 	\item Gleiche Hintergrunddienste in beiden Umgebungen
 \end{itemize}
 \subsection{XI. Logs}
+Die Zwölf-Factor -App sieht Logs als Eventströme
 \begin{itemize}
 	\item Die Zwölf-Faktor-App kümmert sich nicht um das Ziel der Ausgabedaten
 	\item Es wird immer nach \texttt{stdout} geschrieben
@@ -150,12 +154,22 @@ Die Zwölf-Faktor-App läuft eigenständig.
 	\item Möglichkeit, spezielle Loganalyse und -indizierungssysteme zu verwenden
 \end{itemize}
 \subsection{XII. Administrationsprozesse}
+Die Zwölf-Factor-App hat Administrationen als einmalige Vorgänge
 \begin{itemize}
 	\item Administrative Aufgaben laufen in derselben Umgebung wie die App
 	\item Sie laufen in derselben Isolationsebene (Bundler bei Ruby, virtualenv bei Python etc.)
 	\item Administrativer Code wird gemeinsam mit dem Anwendungscode ausgeliefert
 \end{itemize}
 \section{Fazit}
+Die 12 Factor App hat auch noch Schwächen\ldots
+	\begin{itemize}
+	\item Gute Basis für die Entwicklung von Web Apps
+	\item Kritik von Kevin Hoffman, Buch \enquote{Beyond the 12 Factor App}~\cite{beyond}
+	\item Er erweitert die 12 Faktoren auf 15 und überarbeitet die vorhandenen
+	\item Insbesondere Kritik am fehlenden Faktor Sicherheit, welches zentraler Bestandteil einer Web App sein muss
+	\item Ansatz \enquote{API first} erlaubt eine bessere Integration
+	\item Telemetrie erlaubt es, die App weiter auf das Nutzerverhalten zu optimieren
+\end{itemize}
 
 %\begin{figure}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
 %\includegraphics[width=\linewidth]{view}
@@ -163,17 +177,15 @@ Die Zwölf-Faktor-App läuft eigenständig.
 %\label{fig:view}
 %\end{figure*}
 
-\lipsum[4] % Dummy text
-
 
 %------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
 %----------------------------------------------------------------------------------------
-\phantomsection
+\phantomsection%
 \bibliographystyle{unsrt}
-\bibliography{sample}
+\bibliography{../literatur}
 
 %----------------------------------------------------------------------------------------
 
