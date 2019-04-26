@@ -127,64 +127,24 @@ Um vom Quellcode einer Anwendung zu einem laufenden System zu kommen sind drei S
 
 %Sidney
 \subsection{VII. Bindung an Ports}
-Die Zwölf-Faktor-App läuft eigenständig.
-\begin{itemize}
-	\item Unabhängig von einem gegebenfalls vor\-han\-den\-em Web\-server.
-	\item Verarbeitung von HTTP innerhalb des Appcodes
-	\item Bindet sich an einen Port und wartet dort auf Requests
-	\item Auch andere Protokolle können angeboten werden
-\end{itemize}
+Die Zwölf-Faktor-App läuft eigenständig und unabhängig von einem gegebenfalls vorhandenem Webserver. Die Verarbeitung von HTTP-Requests und -Responses verläuft vollständig innerhalb des Appcodes. Dazu bindet sich die App an einen Port und wartet dort auf Requests. Auch andere Protokolle können über diese Methode angeboten werden.
 \subsection{VIII. Nebenläufigkeit}
-Die Zwölf-Faktor-App wird anhand von Prozessen skaliert
-\begin{itemize}
-	\item Skalierung über die Anzahl der Prozesse
-	\item Verwendung vom Prozessmanager des Systems zur Behandlung \newline von Triggern
-\end{itemize}
+Die Zwölf-Faktor-App wird anhand der Anzahl laufender Prozesse skaliert. Anstatt von pid-Dateien und Daemons wird der Prozessmanager des Betriebssystems verwendet, um abgestürtzte Prozesse und vom Nutzer initiierte Neustarts zu verwalten.
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.3\textwidth]{../process-types.png}
 	\caption{Skalierung mit Prozessen~\cite{factor-concurrency}}
 \end{figure}
 \subsection{IX. Entsorgbarkeit}
-Die Prozesse der Zwölf-Faktor-App sind jederzeit entsorgbar
-\begin{itemize}
-	\item Die Prozesse können jederzeit gestartet und beendet werden
-	\item Möglichst kleine Startzeiten
-	\item Möglichst unproblematisches Beenden
-	\item Robust gegenüber plötzlichen Tod
-	\item Auf die Spitze getrieben: Crash-only design
-\end{itemize}
+Die Prozesse der Zwölf-Faktor-App sind jederzeit entsorgbar, d.h.\@ die Prozesse können jederzeit gestartet und beendet werden. Deshalb ist sehr wichtig, dass möglichst kleine Startzeiten und ein möglichst unproblematisches Beenden möglich sind. Außerdem muss die App robust gegenüber plötzlichen Tod sein, sodass keine Datenverluste auftreten. Auf die Spitze getrieben wäre ein mögliches Crash-only design.
 \subsection{X. Dev-Prod-Gleichheit}
-Die Zwölf-Factor-App hat möglichst gleiche Entwicklungs- und Produktionsumgebungen
-\begin{itemize}
-	\item Zwölf-Factor-App ist für Continuous Deployment ausgelegt
-	\item Gleiche Hintergrunddienste in beiden Umgebungen
-\end{itemize}
+Die Zwölf-Factor-App hat möglichst gleiche Entwicklungs- und Produktionsumgebungen. Die Zwölf-Factor-App ist für Continuous Deployment ausgelegt, was bedeutet, dass die Verteilung einer neuen Version innerhalb von Stunden geschieht. Gleiche Hintergrunddienste in beiden Umgebungen sind dabei wichtig, um eventuelle Inkompatibilitäten schon bei der Entwicklung erkennen zu können.
 \subsection{XI. Logs}
-Die Zwölf-Factor -App sieht Logs als Eventströme
-\begin{itemize}
-	\item Die Zwölf-Faktor-App kümmert sich nicht um das Ziel der Ausgabedaten
-	\item Es wird immer nach \texttt{stdout} geschrieben
-	\item Die Ausführungsumgebung sammelt die Ausgaben aller Prozesse und kümmert sich um das Verarbeiten
-	\item Möglichkeit, spezielle Loganalyse und -indizierungssysteme zu verwenden
-\end{itemize}
+Die Zwölf-Factor -App sieht Logs als Eventströme. Die Zwölf-Faktor-App kümmert sich nicht um das Ziel der Ausgabedate, sondern es wird immer nach \texttt{stdout} geschrieben. Die Ausführungsumgebung sammelt die Ausgaben aller Prozesse und kümmert sich um das Verarbeiten. Dadurch besteht die Möglichkeit, spezielle Loganalyse und -indizierungssysteme zu verwenden, welche das Aufspüren von Problemen effizienter zu gestalten.
 \subsection{XII. Administrationsprozesse}
-Die Zwölf-Factor-App hat Administrationen als einmalige Vorgänge
-\begin{itemize}
-	\item Administrative Aufgaben laufen in derselben Umgebung wie die App
-	\item Sie laufen in derselben Isolationsebene (Bundler bei Ruby, virtualenv bei Python etc.)
-	\item Administrativer Code wird gemeinsam mit dem Anwendungscode ausgeliefert
-\end{itemize}
+Die Zwölf-Factor-App hat Administrationen als einmalige Vorgänge. Wichtig ist wieder, dass auch administrative Aufgaben in derselben Umgebung wie die App laufen. Sie laufen in derselben Isolationsebene (Bundler bei Ruby, virtualenv bei Python etc.), um Inkompatibilitäten zu vermeiden. Administrativer Code wird auch gemeinsam mit dem Anwendungscode ausgeliefert, um Synchronisationsprobleme mit verschiedenen Versionen vorzubeugen.
 \section{Fazit}
-Die 12 Factor App hat auch noch Schwächen\ldots
-	\begin{itemize}
-	\item Gute Basis für die Entwicklung von Web Apps
-	\item Kritik von Kevin Hoffman, Buch \enquote{Beyond the 12 Factor App}~\cite{beyond}
-	\item Er erweitert die 12 Faktoren auf 15 und überarbeitet die vorhandenen
-	\item Insbesondere Kritik am fehlenden Faktor Sicherheit, welches zentraler Bestandteil einer Web App sein muss
-	\item Ansatz \enquote{API first} erlaubt eine bessere Integration
-	\item Telemetrie erlaubt es, die App weiter auf das Nutzerverhalten zu optimieren
-\end{itemize}
+Die 12 Factor App hat auch noch Schwächen. Es wird als eine gute Basis für die Entwicklung von Web Apps gesehen. Allerdings gibt es auch Kritik an dem Modell. Kritik kommt unter anderem von Kevin Hoffman, wieder diese in dem Buch \enquote{Beyond the 12 Factor App}~\cite{beyond} beschrieben hat. Er erweitert die 12 Faktoren auf 15 und überarbeitet die vorhandenen Faktoren. Insbesondere äußert er Kritik am fehlenden Faktor Sicherheit, welches zentraler Bestandteil einer Web App sein muss. Aös weiteren Ansatz gibt er das Prinzip \enquote{API first} an, welches eine bessere Integration in Systeme und Apps erlaubt. Als weiterer Punkt nimmt er die Telemetrie, welche es erlaubt, die App weiter auf das Nutzerverhalten zu optimieren.
 
 %\begin{figure}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
 %\includegraphics[width=\linewidth]{view}
