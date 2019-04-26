@@ -26,6 +26,9 @@
 \usepackage[ngerman]{babel} % Specify a different language here - english by default
 \usepackage{csquotes}
 
+\usepackage{biblatex} 
+\addbibresource{../literatur.bib}
+
 \usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
 
 %----------------------------------------------------------------------------------------
@@ -104,7 +107,7 @@ Das Ziel dabei ist es, dass SaaS Apps künftig einfacher skalierbar sind, besser
 %------------------------------------------------
 
 \section{Die Zwölf Faktoren}
-Eine \enquote{12 Factor App} benötigt wie der Name schon vermuten lässt zwölf Faktoren um den formulierten Ansprüchen zu genügen. Im Folgenden werden diese Faktoren kurz vorgestellt. 
+Eine \enquote{12 Factor App} benötigt wie der Name schon vermuten lässt zwölf Faktoren um den formulierten Ansprüchen zu genügen. Im Folgenden werden diese Faktoren kurz vorgestellt.\nocite{factor}
 \subsection{I. Codebase}
 Um dem Anspruch einer \enquote{12 Factor App} zu genügen muss der Code immer durch ein Versionsmanagement wie Git oder SVN verwaltet werden. Dabei wird die jede Änderung in einer Versionsdatenbank gespeichert.\newline
 Weder mehrere Repositories noch duplizierter Code in verschiedenen Repositories ist zulässig. Verschiedene Codebases sind als mehrere Apps zu behandeln und duplizierter Code muss in Bibliotheken ausgelagert werden.
@@ -124,6 +127,8 @@ Um vom Quellcode einer Anwendung zu einem laufenden System zu kommen sind drei S
 \end{enumerate}
 Änderungen können nicht zur Laufzeit vorgenommen werden, stattdessen werden sie durch neue Releases dem System zugeführt. Es bietet sich an hierfür ein eine Release-Verwaltung einzusetzen um bei Fehlern in neuen Releases ohne großen aufwand zu einem vorherigen Release zurück zu kehren.
 \subsection{VI. Prozesse}
+Eine App benötigt im einfachsten Fall einen Prozess im Betriebssystem. Komplexere Anwendungen können jedoch sehr viele Prozesse benötigen. Daten dir zur Laufzeit abgefragt werden sollen, werden in unterstützenden Diensten, wie Datenbanken, gespeichert. Der RAM und das Dateisystem können maximal als Cache für die Dauer einer Transaktion verwendet werden, da nicht gewährleistet werden kann, dass die Nächste Transaktion vom selben Prozess bearbeitet wird.
+
 
 %Sidney
 \subsection{VII. Bindung an Ports}
@@ -158,10 +163,6 @@ Die 12 Factor App hat auch noch Schwächen. Es wird als eine gute Basis für die
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
 %----------------------------------------------------------------------------------------
-\phantomsection%
-\bibliographystyle{unsrt}
-\bibliography{../literatur}
-
-%----------------------------------------------------------------------------------------
-
+%\phantomsection%
+\printbibliography%
 \end{document}
