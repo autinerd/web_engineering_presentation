@@ -1,3 +1,4 @@
+% chktex-file 13
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{datetime2}
@@ -201,7 +202,7 @@ sorting=nyt]{biblatex}
 							\begin{block}{Die Zwölf-Faktor-App wird anhand von Prozessen skaliert}
 						\begin{itemize}
 							\item Skalierung über die Anzahl der Prozesse
-							\item Verwendung vom Prozessmanager des Systems
+							\item Verwendung vom Prozessmanager des Systems zur Behandlung \newline von Triggern
 						\end{itemize}
 					\end{block}
 					\column{0.5\textwidth}
@@ -272,288 +273,22 @@ sorting=nyt]{biblatex}
 			\end{frame}
 		\section{Fazit}
 			\subsection{Fazit und Kritik}
-%		\section{Architektursichten}
-%		\subsection{Perspektiven}
-%			\begin{frame}{Perspektiven}
-%				\begin{columns}
-%				\column{0.5\textwidth}
-%				\begin{itemize}
-%					\item Es existiert kein Modell, welches alle relevanten Informationen beinhaltet
-%					\item Verschiedene Perspektiven (vgl. \cite{4+1})
-%						\begin{itemize}
-%						\item Logische Sicht
-%						\item Prozessorientierte Sicht
-%						\item Entwicklungsorientierte Sicht
-%						\item Physische Sicht 
-%						\textcolor{gray}{\item Konzeptionelle Sicht}
-%						\end{itemize} 
-%				\end{itemize}
-%			   	\column{0.5\textwidth}
-%			   	\begin{figure}
-%					\includegraphics[width=\textwidth]{4+1.jpg}
-%					\caption{Darstellung 4+1-Sichtenmodell (vgl. \cite{4+1pic})}
-%				\end{figure}
-%			\end{columns}
-%			\end{frame}
-%			\subsection{Notationen}
-%			\begin{frame}{Notationen}
-%			\begin{columns}
-%			\column{0.5\textwidth}
-%			\textbf{Informelle Notation (vgl. \cite[ S. 8]{req}}):
-%				\begin{itemize}
-%					\item Syntax und Semantik nicht oder nur informell vorgegeben
-%					\item Beispiel: freie Diagramme
-%					\item Vorteilhaft bei der Planung und des Entwurfs von Systemarchitekturen (vgl. \cite[ S. 191]{sommer})
-%				\end{itemize}				
-%				\column{0.5\textwidth}
-%				\textbf{Semi-formale Notation (vgl. \cite[ S. 8]{req}}):
-%				\begin{itemize}
-%					\item Syntax vorgegeben, Semantik halbformal beschrieben
-%					\item Beispiele: UML, OCL
-%					\item Vorteilhaft bei der Dokumentation von Systemarchitekturen (vgl. \cite[ S. 191]{sommer})
-%				\end{itemize}
-%			\end{columns}
-%			\textit{Auch existiert die Architectural Description Language (ADL). Nachteil: sehr spezifisch auf das Anwendungfeld zugeschnitten.}
-%			\end{frame}
-%		
-%		\section{Architekturmuster}
-%			\subsection{Definition}
-%			\begin{frame}{Definition}
-%				\begin{block}{Merkmale von Architekturmustern (vgl. \cite{wulff}):}
-%					\begin{itemize}
-%						\item \enquote{Architekturmuster beschreiben die grundsätzliche 
-%						Struktur und Organisation einer Anwendung und 
-%						liegen auf der höchsten Abstraktionsebene.}
-%					
-%						\item \enquote{Ein Architekturmuster beschreibt die Menge 
-%						vordefinierter Subsysteme, spezifiziert deren 
-%						Zuständigkeit und enthält Regeln zu Organisation 
-%						der Beziehungen zwischen ihnen.}
-%					
-%						\item \enquote{Architekturmuster sind prinzipiell 
-%						sprach neutral
-%						und Plattform unabhängig.}
-%					\end{itemize}
-%				\end{block}
-%			\end{frame}
-%			\subsection{Model-View-Controller-Muster}
-%			\begin{frame}[allowframebreaks]{Model-View-Controller-Muster}
-%			   	\begin{figure}
-%					\includegraphics[width=0.8\textwidth]{mvc.png}
-%					\caption{Model-View-Controller (MVC) (vgl. \cite[ S.193]{sommer})}
-%				\end{figure}
-%				\begin{figure}
-%					\includegraphics[width=0.6\textwidth]{mvc_bsp.png}
-%					\caption{Architektur eine Webanwendung im MVC-Modell (vgl. \cite[ S.193]{sommer})}
-%				\end{figure}
-%			\end{frame}
-%			\subsection{Schichtenarchitektur}
-%			\begin{frame}{Schichtenarchitektur (vgl. \cite[ S. 194]{sommer})}
-%			\begin{tabular}{*{2}{l}}
-%				\toprule
-%				\textbf{Name}&\textbf{Schichtenarchitektur}\\
-%				\midrule
-%				\midrule
-%				\textbf{Beschreibung}&\makecell[l]{Strukturierung in Schichten und hierarchischer\\ Aufbau von Diensten.}\\
-%				\midrule
-%				\textbf{Verwendung}&\makecell[l]{Zur Erweiterung von Systemen, der Arbeit in\\ Teams und bei mehreren Sicherheitsebenen.}\\
-%				\midrule
-%				\textbf{Vorteile}&\makecell[l]{Bei konstanten Schnittstellen können ganze\\ Schichten ausgetauscht werden.\\ Modulare Nutzung ist möglich.}\\
-%				\midrule
-%				\textbf{Nachteile}&\makecell[l]{Probleme durch klare Trennung von Schichten\\ und Einhaltung der Hierarchie.}\\
-%				\bottomrule
-%			\end{tabular}
-%			\end{frame}
-%			\subsection{Repository-Architektur}
-%			\begin{frame}{Repository-Architektur (vgl. \cite[ S. 196f]{sommer})}
-%			\begin{tabular}{*{2}{l}}
-%				\toprule
-%				\textbf{Name}&\textbf{Repository-Architektur}\\
-%				\midrule
-%				\midrule
-%				\textbf{Beschreibung}&\makecell[l]{Zentrale Schnittstelle und Datenspeicher ist das\\ Repository. Interaktion zwischen Komponenten\\ läuft ausschließlich über das Repository.}\\
-%				\midrule
-%				\textbf{Verwendung}&\makecell[l]{Fokus auf lange Speicherung und große Daten-\\mengen.}\\
-%				\midrule
-%				\textbf{Vorteile}&\makecell[l]{Unabhängigkeit der Komponenten, Systemweite\\ Änderungen durch eine Komponente möglich.}\\
-%				\midrule
-%				\textbf{Nachteile}&\makecell[l]{Fehler beim Repository wirken sich auf das ganze\\ System aus. Flaschenhals durch zentrale Kom-\\munikationsschnittstelle}\\
-%				\bottomrule
-%			\end{tabular}
-%			\end{frame}	
-%			\subsection{Client-Server-Architektur}
-%			\begin{frame}{Client-Server-Architektur (vgl. \cite[ S. 198]{sommer})}
-%			\begin{tabular}{*{2}{l}}
-%				\toprule
-%				\textbf{Name}&\textbf{Client-Server-Architektur}\\
-%				\midrule\midrule
-%				\textbf{Beschreibung}&\makecell[l]{Funktionen werden durch Dienste zur Verfügung\\ gestellt. Jeder Dienst wird durch einen Server\\ bereitgestellt. Clients greifen auf den Server zu\\ um den gewünschten Dienst aufzurufen.}\\\midrule
-%				\textbf{Verwendung}&\makecell[l]{Zugriff auf gemeinsame Datenbank möglich. Gute\\ Hardwareauslastung durch serverbasiertes Modell.}\\\midrule
-%				\textbf{Vorteile}&\makecell[l]{Verteilung über Netzwerk ist möglich. Grund-\\funktionen können zentral angeboten werden.}\\\midrule
-%				\textbf{Nachteile}&\makecell[l]{Angriffe über das Netzwerk sind möglich.\\ Performanceeinbußen durch Netzwerkprotokolle.}\\
-%				\bottomrule
-%			\end{tabular}
-%			\end{frame}	
-%	%%%% Sidney %%%%
-%	\section{Anwendungsarchitekturen}
-%		\subsection{Nutzung von Anwendungsarchitekturen}
-%			\begin{frame}{Nutzung von Anwendungsarchitekturen}
-%				\begin{itemize}
-%					\item Enthalten die Haupteigenschaften einer Systemklasse
-%					\item Allgemeine architektonische Struktur kann beibehalten werden für neue Systeme desselben Typs
-%					\item Hilfe bei:
-%					\begin{itemize}
-%						\item Funktion von Anwendungen verstehen
-%						\item Anwendungen desselben Typs vergleichen
-%						\item Systementwürfe für Anwendungen vergleichen 
-%						\item Wiederverwendbarkeit umfangreicher Komponenten einschätzen
-%					\end{itemize}
-%				\end{itemize}
-%			\end{frame}
-%		\subsection{Transaktionsverarbeitende Systeme}
-%			\begin{frame}{Transaktionsverarbeitende Systeme}
-%				\begin{block}{Definition:}
-%					\enquote{Das Ziel Transaktionsverarbeitender Systeme (TP) ist die Verarbeitung von Benutzeranfragen nach Informationen aus einer Datenbank oder Anfragen zum Aktualisieren der Datenbank.} \cite[S. 204]{sommer}
-%				\end{block}
-%				\begin{itemize}
-%					\item Alle Schritte der Transaktion müssen abgeschlossen sein, bevor Änderungen in die Datenbank geschrieben werden
-%					\item Transaktionsmanager ist für die Kommunikation mit der Datenbank verantwortlich
-%				\end{itemize}
-%			\begin{figure}
-%				\begin{tikzpicture}[text centered]
-%				\matrix[ampersand replacement=\&, column sep=4mm] {
-%					\node (p1) [block4] {\tiny E/A-Verarbeitung}; \&
-%					\node (p2) [block4] {\tiny Anwendungs"-logik}; \&
-%					\node (p3) [block4] {\tiny Transaktions"-manager}; \&
-%					\node (p4) [block4] {\tiny Datenbank}; \\
-%				};
-%				\path [line] (p1) -> (p2);
-%				\path [line] (p2) -> (p3);
-%				\path [line] (p3) -> (p4);
-%				\end{tikzpicture}
-%				\caption{Die Struktur transaktionsverarbeitender Anwendungen \cite[S. 204]{sommer}}
-%			\end{figure}
-%			\end{frame}
-%		\subsection{Informationssysteme}
-%			\begin{frame}{Informationssysteme 1}
-%				\begin{itemize}
-%					\item Alle Systeme mit einer gemeinsam genutzten Datenbank können als transaktionsbasierte Informationssysteme betrachtet werden (vgl. \cite[S. 205]{sommer})
-%					\item Kontrollierter Zugriff auf eine große Informationsbasis
-%				\end{itemize}
-%				\begin{figure}
-%					\begin{tikzpicture}[text centered]
-%					\matrix[row sep=2mm] {
-%						\node (p1) [block3] {\tiny Benutzerschnittstelle}; \\
-%						\node (p2) [block3] {\tiny \begin{tabular}{l r}
-%							Benutzerkommunikation & Authentifizierung und Autorisation
-%							\end{tabular}
-%						}; \\
-%						\node (p3) [block3] {\tiny Abrufen und Ändern von Informationen}; \\
-%						\node (p4) [block3] {\tiny Transaktionsverwaltung \\ Datenbank}; \\
-%					};
-%					\end{tikzpicture}
-%					\caption{Schichtenarchitektur eines Informationssystems \cite[S. 205]{sommer}}
-%				\end{figure}
-%			\end{frame}
-%		
-%			\begin{frame}{Informationssysteme 2}
-%				\begin{itemize}
-%					\item Heutzutage meist webbasierte Systeme
-%					\item Schichten häufig softwaretechnisch aufgeteilt:
-%					\begin{itemize}
-%						\item Webserver: Benutzerkommunikation
-%						\item Anwendungsserver: Anwendungslogik, Abrufen und Ändern von Informationen
-%						\item Datenbankserver: Transaktionsmanagement, Ausführen der Datenbankoperationen
-%					\end{itemize}
-%				\end{itemize}
-%			\end{frame}
-%			
-%		\subsection{Sprachverarbeitende Systeme}
-%			\begin{frame}{Sprachverarbeitende Systeme 1}
-%				\begin{itemize}
-%					\item Übersetzen eine natürliche oder künstliche Sprache in eine andere Darstellung \cite[S. 207]{sommer}
-%					\item Beispiele: Compiler, Dateikonverter, Natürliche Übersetzungssysteme
-%				\end{itemize}
-%				\begin{figure}
-%					\begin{tikzpicture}
-%						\matrix[ampersand replacement=\&, column sep = 5mm, row sep = 5mm] {
-%							\node (p1) [block] {\tiny Anweisungen der Quellsprache}; \& \node (p2) [block2] {\tiny \textbf{Übersetzer:} \\[1em] Syntax prüfen; \\ Semantik prüfen; \\ Erstellen}; \& \\
-%							\& \node (p3)  [block2]  {\tiny abstrakte Maschinenanweisungen}; \& \\
-%							\node (p4) [block] {\tiny Daten}; \& \node (p5) [block2] {\tiny \textbf{Interpreter:} \\[1em] abrufen; \\ ausführen}; \&
-%							\node (p6) [block]  {\tiny Ergebnisse};\\
-%						};
-%						\path [line] (p1) -> (p2);
-%						\path [line] (p2) -> (p3);
-%						\path [line] (p3) -> (p5);
-%						\path [line] (p4) -> (p5);
-%						\path [line] (p5) -> (p6);
-%					\end{tikzpicture}
-%					\caption{Die Architektur eines sprachverarbeitenden Systems \cite[S. 208]{sommer}}
-%				\end{figure}
-%			\end{frame}
-%	
-%			\begin{frame}{Sprachverarbeitende Systeme 2}
-%				\begin{itemize}
-%					\item Architektur eines Compilers:
-%					\begin{itemize}
-%						\item lexikalische Analyse
-%						\item Symboltabelle
-%						\item Syntaxanalyse
-%						\item Syntaxbaum
-%						\item Semantikanalyse
-%						\item Codegenerator
-%					\end{itemize}
-%				\end{itemize}
-%			
-%				\begin{figure}
-%					\begin{tikzpicture}
-%						\matrix[ampersand replacement=\&, column sep = 5mm, row sep = 5mm] {
-%							\& \node (p1) [block5] {\tiny
-%									Symboltabelle \\
-%									Syntaxbaum}; \& \\
-%							\node (p2) [block5] {\tiny lexikalische Analyse}; \& \node (p3) [block5] {\tiny syntaktische Analyse}; \& \node (p4) [block5] {\tiny semantische Analyse}; \& \node (p5) [block5] {\tiny Codegenerierung};\\
-%						};
-%						\path [line2] (p1) -> (p2);
-%						\path [line2] (p1) -> (p3);
-%						\path [line2] (p1) -> (p4);
-%						\path [line2] (p1) -> (p5);
-%						\path [line] (p2) -> (p3);
-%						\path [line] (p3) -> (p4);
-%						\path [line] (p4) -> (p5);
-%					\end{tikzpicture}
-%					\caption{Pipes-and-Filter-Architektur für einen Compiler \cite[S. 209]{sommer}}
-%				\end{figure}
-%			\end{frame}
-%				
-%			\begin{frame}{Sprachverarbeitende Systeme 3}
-%				\begin{itemize}
-%					\item Problem bei der Pipes-and-Filter-Architektur: Verbindung mit weiteren Werkzeugen nicht möglich
-%					\item Effektiver: Repository-Architektur
-%				\end{itemize}
-%				\begin{figure}
-%					\begin{tikzpicture}
-%						\matrix (table) [matrix of nodes, nodes in empty cells, ampersand replacement=\&, column sep = 10mm, row sep = 10mm] {
-%							  \& \node (p1) [block5] {\tiny lexikalische Analyse}; \& \node [block5] (p2) {\tiny syntaktische Analyse}; \& \node (p3) [block5]  {\tiny semantische Analyse}; \\
-%							\node (p4) [block5] {\tiny Textformatierer}; \& \node [block5, minimum height = 1em] (p11) {\tiny abstrakter Syntaxbaum}; \& \node [block, minimum height = 1em] (p12) {\tiny Grammatik\-definition}; \&[-5mm] \node [block5] (p5) {\tiny Optimierer}; \\
-%							\node (p6) [block5] {\tiny Editor}; \& \node [block5, minimum height = 1em] (p13) {\tiny Symbol-\\tabelle}; \& \node [block5, minimum height = 1em] (p14) {\tiny Ausgabe\-definition}; \&[-5mm] \node [block5] (p7) {\tiny Codegenerator}; \\
-%						};
-%						\begin{scope}[on background layer]
-%						\node (p10) [fit=(p11)(p12)(p13)(p14),fill=blue!50]{Repository};
-%						\end{scope}
-%						
-%						
-%						\path [line2] (p10) -> (p2);
-%						\path [line2] (p10) -> (p3);
-%						\path [line2] (p10) -> (p4);
-%						\path [line2] (p10) -> (p5);
-%						\path [line2] (p10) -> (p1);
-%						\path [line2] (p10) -> (p6);
-%						\path [line2] (p10) -> (p7);
-%					\end{tikzpicture}
-%					\caption{Repository-Architektur für ein sprachverarbeitendes System \cite[S. 209]{sommer}}
-%				\end{figure}
-%			\end{frame}
-
+			\begin{frame}
+				\frametitle{Fazit und Kritik}
+				
+				\begin{block}{Die 12 Factor App hat auch noch Schwächen\ldots}
+					\begin{itemize}
+					\item Gute Basis für die Entwicklung von Web Apps
+					\item Kritik von Kevin Hoffman, Buch \enquote{Beyond the 12 Factor App}~\cite{beyond}
+					\item Er erweitert die 12 Faktoren auf 15 und überarbeitet die vorhandenen
+					\item Insbesondere Kritik am fehlenden Faktor Sicherheit, welches zentraler Bestandteil einer Web App sein muss
+					\item Ansatz \enquote{API first} erlaubt eine bessere Integration
+					\item Telemetrie erlaubt es, die App weiter auf das Nutzerverhalten zu optimieren
+				\end{itemize}
+				\end{block}
+				
+			
+			\end{frame}
 	\begin{frame}[allowframebreaks]
 		\frametitle{Quellen}
 		\renewcommand{\bibfont}{\scriptsize}

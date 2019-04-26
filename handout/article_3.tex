@@ -1,3 +1,4 @@
+% chktex-file 13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Stylish Article
 % LaTeX Template
@@ -22,7 +23,8 @@
 
 \documentclass[fleqn,10pt]{SelfArx} % Document font size and equations flushed left
 
-\usepackage[english]{babel} % Specify a different language here - english by default
+\usepackage[ngerman]{babel} % Specify a different language here - english by default
+\usepackage{csquotes}
 
 \usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
 
@@ -68,7 +70,7 @@
 %	ABSTRACT
 %----------------------------------------------------------------------------------------
 
-\Abstract{Das vorliegende Handout soll einen kurzen Überblick über die Kriterien geben, welche bei der Erstellung einer Web-Applikation unter den Vorgaben der "12 Factor App" beachtet werden müssen.\newline Mit der "12 Factor App" hat Adam Wiggins von der Firma Heroku im Jahr 2011 eine Methode vorgestellt, mit der sich Software-As-A-Service (SaaS) Apps entwerfen und umsetzten lassen, die folgenden Kriterien entsprechen:
+\Abstract{Das vorliegende Handout soll einen kurzen Überblick über die Kriterien geben, welche bei der Erstellung einer Web-Applikation unter den Vorgaben der \enquote{12 Factor App} beachtet werden müssen.\newline Mit der \enquote{12 Factor App} hat Adam Wiggins von der Firma Heroku im Jahr 2011 eine Methode vorgestellt, mit der sich Software-As-A-Service (SaaS) Apps entwerfen und umsetzten lassen, die folgenden Kriterien entsprechen:
 \begin{itemize}
 	\item Deklarative Formate zur Kosten- und Zeitoptimierung
 	\item Klare Schnittstellen zum Betriebssystem für maximale Portabilität
@@ -110,11 +112,49 @@ Das Ziel dabei ist es, dass SaaS Apps künftig einfacher skalierbar sind, besser
 \subsection{VI. Prozesse}
 %Sidney
 \subsection{VII. Bindung an Ports}
+Die Zwölf-Faktor-App läuft eigenständig.
+\begin{itemize}
+	\item Unabhängig von einem gegebenfalls vor\-han\-den\-em Web\-server.
+	\item Verarbeitung von HTTP innerhalb des Appcodes
+	\item Bindet sich an einen Port und wartet dort auf Requests
+	\item Auch andere Protokolle können angeboten werden
+\end{itemize}
 \subsection{VIII. Nebenläufigkeit}
+\begin{itemize}
+	\item Skalierung über die Anzahl der Prozesse
+	\item Verwendung vom Prozessmanager des Systems zur Behandlung \newline von Triggern
+\end{itemize}
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.3\textwidth]{../process-types.png}
+	\caption{Skalierung mit Prozessen~\cite{factor-concurrency}}
+\end{figure}
 \subsection{IX. Entsorgbarkeit}
+\begin{itemize}
+	\item Die Prozesse können jederzeit gestartet und beendet werden
+	\item Möglichst kleine Startzeiten
+	\item Möglichst unproblematisches Beenden
+	\item Robust gegenüber plötzlichen Tod
+	\item Auf die Spitze getrieben: Crash-only design
+\end{itemize}
 \subsection{X. Dev-Prod-Gleichheit}
+\begin{itemize}
+	\item Zwölf-Factor-App ist für Continuous Deployment ausgelegt
+	\item Gleiche Hintergrunddienste in beiden Umgebungen
+\end{itemize}
 \subsection{XI. Logs}
-\subsection{XII.\@ Administrationsprozesse}
+\begin{itemize}
+	\item Die Zwölf-Faktor-App kümmert sich nicht um das Ziel der Ausgabedaten
+	\item Es wird immer nach \texttt{stdout} geschrieben
+	\item Die Ausführungsumgebung sammelt die Ausgaben aller Prozesse und kümmert sich um das Verarbeiten
+	\item Möglichkeit, spezielle Loganalyse und -indizierungssysteme zu verwenden
+\end{itemize}
+\subsection{XII. Administrationsprozesse}
+\begin{itemize}
+	\item Administrative Aufgaben laufen in derselben Umgebung wie die App
+	\item Sie laufen in derselben Isolationsebene (Bundler bei Ruby, virtualenv bei Python etc.)
+	\item Administrativer Code wird gemeinsam mit dem Anwendungscode ausgeliefert
+\end{itemize}
 \section{Fazit}
 
 %\begin{figure}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
@@ -127,11 +167,6 @@ Das Ziel dabei ist es, dass SaaS Apps künftig einfacher skalierbar sind, besser
 
 
 %------------------------------------------------
-
-
-\addcontentsline{toc}{section}{Acknowledgments} % Adds this section to the table of contents
-
-So long and thanks for all the fish \cite{Figueredo:2009dg}.
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
