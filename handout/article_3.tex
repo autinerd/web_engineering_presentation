@@ -26,6 +26,9 @@
 \usepackage[ngerman]{babel} % Specify a different language here - english by default
 \usepackage{csquotes}
 
+\usepackage{biblatex} 
+\addbibresource{../literatur.bib}
+
 \usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
 
 %----------------------------------------------------------------------------------------
@@ -187,7 +190,7 @@ Die 12 Factor App hat auch noch Schwächen\ldots
 	\item Ansatz \enquote{API first} erlaubt eine bessere Integration
 	\item Telemetrie erlaubt es, die App weiter auf das Nutzerverhalten zu optimieren
 \end{itemize}
-
+\nocite{beyond}
 %\begin{figure}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
 %\includegraphics[width=\linewidth]{view}
 %\caption{Wide Picture}
@@ -200,9 +203,9 @@ Die 12 Factor App hat auch noch Schwächen\ldots
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
 %----------------------------------------------------------------------------------------
-\phantomsection%
-\bibliographystyle{unsrt}
-\bibliography{../literatur}
+%\phantomsection%
+\printbibliography
+\end{document} 
 
 %----------------------------------------------------------------------------------------
 
