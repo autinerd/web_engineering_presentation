@@ -132,11 +132,11 @@ sorting=nyt]{biblatex}
 				\end{frame}
 			\subsection{III. Konfiguration}
 				\begin{frame}{III. Konfiguration}
-					Konfigurationen dürfen nicht im Quellcode definiert werden. Währende der die App selbst über viele Installationen hinweg statisch ist, unterscheiden sich die Konfigurationen je nach Deploy. Zugangsdaten und Netzwerkadressen sind Beispiele für derartige variable Daten die Ausgelagert werden müssen.
+					Konfigurationen dürfen nicht im Quellcode definiert werden. Während die App selbst über viele Installationen hinweg statisch ist, unterscheiden sich die Konfigurationen je nach Deploy. Zugangsdaten und Netzwerkadressen sind Beispiele für derartige variable Daten die Ausgelagert werden müssen.
 					\begin{itemize}
 						\item Konfigurationsdateien (z.B. im yaml Format) - Nachteil: unbestimmter Ort
 						\item Umgebungsvariablen - lassen eine klare Trennung von Code und Konfiguration zu und vermeiden Fehler. 
-						\item Jeder Zweig der Codebase braucht eigene Umgebung - Nachteil für Skalierbarkeit
+						\item Teilweise werden Umgebungsvariablen zur Strukturierung nach Deploy gruppiert. Nachteil: bei wachsenden Deploys Explosion der Anzahl von Umgebungsvariablen.
 					\end{itemize} 
 				\end{frame}
 			\subsection{IV. Unterstützende Dienste}
